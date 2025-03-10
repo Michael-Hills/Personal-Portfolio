@@ -1,0 +1,34 @@
+import NavMenu from './components/NavMenu'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import Home from './pages/home'
+import About from './pages/about'
+import Projects from './pages/projects'
+import Contact from './pages/contact'
+import ProjectDetailPage from './components/ProductDetailPage'
+import GlobalStyles from './styles/GlobalStyle';
+import Typography from './styles/Typography';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
+
+function App() {
+  return (
+    <>
+      <GlobalStyles />
+      <Typography/>
+      <Router>
+        <NavMenu />
+
+        <Routes>
+          <Route path="/" element={<Home />} /> 
+          <Route path="/about" element={<About />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/project/:id" element={<ProjectDetailPage/>} />
+        </Routes>
+      </Router>
+    </>
+  );
+}
+
+export default App;

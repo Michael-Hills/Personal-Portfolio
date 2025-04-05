@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import HeroImg from '../assets/images/hero.png';
+import HeroImg from '../assets/images/test3.jpg';
 import Button from './Button';
 import SocialMediaArrow from '../assets/images/social-media-arrow.svg';
 import ScrollDownArrow from '../assets/images/scroll-down-arrow.svg';
@@ -19,7 +19,7 @@ const HeroStyles = styled.div`
   }
 
   .container{
-    margin-top: 15rem;
+    margin-top: 10rem;
   }
   .hero__heading {
     font-size: 2rem;
@@ -44,6 +44,11 @@ const HeroStyles = styled.div`
   }
   .hero__info {
     margin-top: -18rem;
+
+    p{
+      color: var(--white) !important; 
+    }
+    
   }
   .hero__social,
   .hero__scrollDown {

@@ -21,6 +21,12 @@ const projectData = [
     title: 'app Dev',
     desc: 'I develop mobile application. I create mobile app with eye catching ui.',
   },
+  {
+    id: 4,
+    img: GreenCtgImg,
+    title: 'app Dev',
+    desc: 'I develop mobile application. I create mobile app with eye catching ui.',
+  },
   // Add more project items as needed
 ];
 

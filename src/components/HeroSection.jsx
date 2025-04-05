@@ -7,18 +7,19 @@ import PText from './PText';
 
 const HeroStyles = styled.div`
   .hero {
-    height: 100vh;
-    min-height: 1000px;
+
+  
     width: 100%;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
+    margin-bottom: 10rem;
   }
 
   .container{
-    margin-top: -15rem;
+    margin-top: 15rem;
   }
   .hero__heading {
     font-size: 2rem;
@@ -35,9 +36,9 @@ const HeroStyles = styled.div`
     }
   }
   .hero__img {
-    max-width: 900px;
+    max-width: 600px;
     width: 100%;
-    height: 600px;
+    height: auto;
     margin: 0 auto;
     border: 2px solid var(--gray-1);
   }
@@ -51,7 +52,7 @@ const HeroStyles = styled.div`
     gap: 2rem;
     position: absolute;
 
-    bottom: 30rem;
+    bottom: 10rem;
     width: 50px;
   }
   .hero__social {
@@ -157,7 +158,7 @@ export default function HeroSection() {
       <div className="hero">
         <div className="container">
           <h1 className="hero__heading">
-            <span>Hello, This is</span>
+            <span>Hello, I am</span>
             <span className="hero__name">Michael Hills</span>
           </h1>
           <div className="hero__img">

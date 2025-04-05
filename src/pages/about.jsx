@@ -43,6 +43,8 @@ const AboutPageStyles = styled.div`
   .right {
     img {
       border: 2px solid var(--gray-1);
+      max-width: 80%;
+      height: auto;
     }
   }
   .about__info__items {

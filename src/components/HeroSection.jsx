@@ -101,7 +101,7 @@ const HeroStyles = styled.div`
 
   @media only screen and (max-width: 768px) {
     .hero {
-      min-height: 750px;
+     
     }
     .hero__heading {
       font-size: 1.4rem;
@@ -166,11 +166,10 @@ export default function HeroSection() {
           </div>
           <div className="hero__info">
             <PText>
-              I am working as a freelance web designer and developer for 4
-              years. I love to design and make new web experiences for the
-              people.
+              Recent graduate with a Masters Degree in Computer Science.
+              Currently working at Fitch Ratings as an Associate Software Engineer.
             </PText>
-            <Button btnText="see my works" btnLink="/projects" outline='no' />
+            <Button btnText="My Projects" btnLink="/projects" outline='no' />
           </div>
           <div className="hero__social">
             <div className="hero__social__indicator">

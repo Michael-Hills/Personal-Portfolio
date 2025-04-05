@@ -16,6 +16,18 @@ const AboutSectionStyles = styled.div`
   .aboutSection__right {
     flex: 1;
   }
+
+  .aboutSection__right {
+    display: flex;
+    justify-content: flex-end;
+    img{
+      width: 80%;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+
+  
   .section-title {
     text-align: left;
   }
@@ -37,6 +49,7 @@ const AboutSectionStyles = styled.div`
     .aboutSection__right {
       flex: 3;
     }
+    
   }
   @media only screen and (max-width: 768px) {
     .container {
@@ -49,7 +62,18 @@ const AboutSectionStyles = styled.div`
     }
     .aboutSection__right {
       margin-top: 3rem;
+      justify-content: center;
+      img{
+        width: 80%;
+        height: auto;
+        object-fit: cover;
+      }
     }
+
+    
+
+   
+
     .section-title {
       text-align: center;
     }

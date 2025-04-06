@@ -7,12 +7,12 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
   :root{
-    --dark-bg: #262626;
-    --gray-1: #BCB4B4;
-    --deep-dark: #1E1E1E;
-    --gray-2: #363636;
-    --white : white;
-    --black: black;
+    --dark-bg: ${props => props.theme.bg};
+    --gray-1: ${props => props.theme.gray1};
+    --deep-dark: ${props => props.theme.deepDark};
+    --gray-2: ${props => props.theme.gray2};
+    --white: ${props => props.theme.white};
+    --black: ${props => props.theme.black};
   }
   html{
     font-size: 8px;

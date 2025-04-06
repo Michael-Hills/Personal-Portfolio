@@ -2,6 +2,8 @@ import { NavLink } from "react-router-dom";
 import { MdMenu, MdClose } from "react-icons/md";
 import { useState } from 'react';
 import styled from 'styled-components';
+import ThemeToggle from './ThemeToggle';
+import { useTheme } from '../context/ThemeContext';
 
 
 
@@ -53,10 +55,25 @@ const NavStyles = styled.nav`
   .navItems .closeNavIcon {
     display: none;
   }
+
+  .theme-toggle-desktop {
+    position: absolute;
+    left: 2rem;
+    top: 1.2rem;
+    display: block;
+  }
+
+  .theme-toggle-mobile {
+    display: none; // Hide mobile toggle by default
+  }
+
   @media only screen and (max-width: 768px) {
     padding: 0;
     .hide-item {
       transform: translateY(calc(-100% - var(--top)));
+    }
+    .theme-toggle-desktop {
+      display: none;
     }
     .mobile-menu-icon {
       display: block;
@@ -85,6 +102,12 @@ const NavStyles = styled.nav`
         display: block;
         margin-bottom: 1rem;
       }
+      .theme-toggle-mobile {
+        display: block;
+        position: absolute;
+        top: 2rem;
+        left: 2rem;
+      }
     }
   }
 `;
@@ -93,8 +116,12 @@ const NavStyles = styled.nav`
 
 export default function NavMenu() {
     const [showNav, setShowNav] = useState(false);
+    const { isDarkMode, toggleTheme } = useTheme();
     return (
       <NavStyles>
+         <div className="theme-toggle-desktop">
+          <ThemeToggle isDark={isDarkMode} toggleTheme={toggleTheme} />
+        </div>
         <div
           className="mobile-menu-icon"
           onClick={() => setShowNav(!showNav)}
@@ -114,6 +141,9 @@ export default function NavMenu() {
             tabIndex={0}
           >
             <MdClose />
+          </div>
+          <div className="theme-toggle-mobile">
+            <ThemeToggle isDark={isDarkMode} toggleTheme={toggleTheme} />
           </div>
           <li>
             <NavLink
@@ -159,6 +189,7 @@ export default function NavMenu() {
               Contact
             </NavLink>
           </li>
+         
         </ul>
       </NavStyles>
     );

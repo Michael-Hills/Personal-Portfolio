@@ -15,6 +15,28 @@ const ServicesItemsStyles = styled.div`
     margin: 0 auto; /* Centers the carousel */
   }
 
+  .slick-prev,
+  .slick-next {
+    &:before {
+      color: ${props => props.theme.text}; /* Use theme text color */
+      font-size: 2rem;
+    }
+  }
+
+  /* Add styles for slider dots */
+  .slick-dots {
+    li {
+      button {
+        &:before {
+          color: ${props => props.theme.text}; /* Use theme text color */
+        }
+      }
+      &.slick-active button:before {
+        color: ${props => props.theme.text}; /* Use theme text color for active dot */
+      }
+    }
+  }
+
 
   .services__carousel {
     margin-top: 5rem;

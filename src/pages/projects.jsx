@@ -23,7 +23,8 @@ const ProjectStyle = styled.div`
     width: 100%;
     font-size: 2rem;
     padding: 0.8rem;
-    color: var(--black);
+    color: ${props => props.theme.text}; // Update to use theme text color
+    background: ${props => props.theme.deepDark}; // Add background color from theme
     border-radius: 6px;
     outline: none;
     border: none;

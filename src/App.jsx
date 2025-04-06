@@ -1,3 +1,7 @@
+import { ThemeProvider as StyledThemeProvider } from 'styled-components';
+import { ThemeProvider } from './context/ThemeContext';
+import { useTheme } from './context/ThemeContext';
+import { darkTheme, lightTheme } from './styles/Themes';
 import NavMenu from './components/NavMenu'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Home from './pages/home'
@@ -13,7 +17,17 @@ import 'slick-carousel/slick/slick-theme.css';
 
 function App() {
   return (
-    <>
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
+  );
+}
+
+function AppContent() {
+  const { isDarkMode } = useTheme();
+
+  return (
+    <StyledThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
       <GlobalStyles />
       <Typography/>
       <Router>
@@ -27,7 +41,7 @@ function App() {
           <Route path="/project/:id" element={<ProjectDetailPage/>} />
         </Routes>
       </Router>
-    </>
+    </StyledThemeProvider>
   );
 }
 

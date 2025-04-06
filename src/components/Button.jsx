@@ -13,7 +13,7 @@ const ButtonStyle = styled.div`
     border-radius: 8px;
     display: inline-block;
     border: 2px solid var(--gray-1);
-    color: ${(props) => props.$outline === 'yes' ? 'var(--gray-1)' : 'black'};
+    color: ${(props) => props.$outline === 'yes' ? 'var(--gray-1)' : 'white'};
   }
 
   @media only screen and (max-width: 768px) {

@@ -24,7 +24,7 @@ const HeroStyles = styled.div`
   }
   .hero__heading {
     font-size: 2rem;
-    margin-bottom: -4rem;
+    margin-bottom: 1rem;
     position: relative;
     span {
       display: inline-block;
@@ -34,6 +34,7 @@ const HeroStyles = styled.div`
       font-family: 'Montserrat SemiBold';
       font-size: 7rem;
       color: var(--white);
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
   }
   .hero__img {
@@ -47,7 +48,8 @@ const HeroStyles = styled.div`
     margin-top: -18rem;
 
     p{
-      color: var(--white) !important; 
+      color: white !important; 
+      
     }
     
   }
@@ -116,7 +118,7 @@ const HeroStyles = styled.div`
     }
     .hero__heading {
       font-size: 1.4rem;
-      margin-bottom: -3rem;
+      margin-bottom: 1rem;
       .hero__name {
         font-size: 4.5rem;
       }
@@ -126,6 +128,9 @@ const HeroStyles = styled.div`
     }
     .hero__info {
       margin-top: 3rem;
+      p{
+        color: black !important;
+      }
     }
     .hero__social {
       left: 0px;

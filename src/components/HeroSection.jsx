@@ -116,7 +116,7 @@ const HeroStyles = styled.div`
 
   @media only screen and (max-width: 768px) {
     .hero {
-     
+      margin-bottom: 5rem;
     }
     .hero__heading {
       font-size: 1.4rem;
@@ -127,11 +127,12 @@ const HeroStyles = styled.div`
     }
     .hero__img {
       height: 300px;
+      max-width:90%;
     }
     .hero__info {
       margin-top: 3rem;
       p{
-        color: black !important;
+        color: var(--white) !important;
       }
     }
     .hero__social {
@@ -157,6 +158,14 @@ const HeroStyles = styled.div`
           }
         }
       }
+    }
+
+    .hero__scrollDown{
+      margin-right: 1rem;
+    }
+
+    .hero__social {
+      margin-left: 1rem;
     }
     .hero__scrollDown, .hero__social {
       right: 0;

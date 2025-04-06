@@ -21,6 +21,13 @@ const ItemStyles = styled.div`
   .para {
     margin-top: 2rem;
   }
+
+  @media only screen and (max-width: 768px) {
+
+    .servicesItem__title {
+    font-size: 3rem;
+  }
+  }
   
 `;
 

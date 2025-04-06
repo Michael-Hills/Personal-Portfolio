@@ -19,7 +19,7 @@ const SectionTitleStyle = styled.div`
       font-size: 1.2rem;
     }
     h2 {
-      font-size: 3.6rem;
+      font-size: 4rem;
     }
   }
 `;

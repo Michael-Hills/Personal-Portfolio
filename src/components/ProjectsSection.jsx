@@ -8,7 +8,7 @@ import projectData from '../assets/data/projects';
 
 
 const ProjectSectionStyle = styled.div`
-  padding: 10rem 0;
+  padding: 5rem 0;
 
   .slick-slider {
     margin: 0 auto; /* Centers the carousel */

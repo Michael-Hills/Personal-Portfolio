@@ -74,7 +74,7 @@ export default function Footer() {
               },
               {
                 type: 'Link',
-                title: 'About',
+                title: 'About Me',
                 path: '/about',
               },
               {

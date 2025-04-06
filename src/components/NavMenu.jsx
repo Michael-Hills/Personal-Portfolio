@@ -134,7 +134,7 @@ export default function NavMenu() {
               onKeyDown={() => setShowNav(!showNav)}
               tabIndex={0}
             >
-              About
+              About Me
             </NavLink>
           </li>
           <li>

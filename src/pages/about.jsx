@@ -83,9 +83,9 @@ export default function About() {
           <div className="top-section">
             <div className="left">
               <p className="about__subheading">
-                Hi, I am <span>Ayan Khan</span>
+                Hi, I am <span>Michael Hills</span>
               </p>
-              <h2 className="about__heading">A freelance Web developer</h2>
+              <h2 className="about__heading">Software Engineer</h2>
               <div className="about__info">
                 <PText>
                   I am from chittagong, Bangladesh. A place of beauty and

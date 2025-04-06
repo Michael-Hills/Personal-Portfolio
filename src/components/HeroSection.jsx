@@ -84,11 +84,13 @@ const HeroStyles = styled.div`
       width: 16px;
       margin: 0 auto;
       object-fit: contain;
+      filter: ${({ theme }) => theme.text === '#FFFFFF' ? 'invert(0)' : 'invert(1)'};
     }
   }
   .hero__scrollDown {
     img {
       max-height: 70px;
+      filter: ${({ theme }) => theme.text === '#FFFFFF' ? 'invert(0)' : 'invert(1)'};
     }
   }
 

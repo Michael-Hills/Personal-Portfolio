@@ -1,4 +1,7 @@
-import { MdDesktopMac, MdCode, MdPhonelinkSetup } from 'react-icons/md';
+import { MdCode} from 'react-icons/md';
+import { CiServer } from "react-icons/ci";
+import { LuBrainCog } from "react-icons/lu";
+import { TbDatabaseSearch } from "react-icons/tb";
 import styled from 'styled-components';
 import Slider from 'react-slick';
 import SectionTitle from './SectionTitle';
@@ -70,21 +73,29 @@ export default function ServicesSection() {
         <SectionTitle subheading="What are my" heading="Skills" />
         <Slider {...settings} className="services__carousel">
           <ServicesSectionItem
-            icon={<MdDesktopMac />}
-            title="web design"
-            desc="I do ui/ux design for the website that helps website to get a unique look."
+            icon={<CiServer />}
+            title="Backend"
+            desc="Build and maintain backend services and APIs that support seamless frontend integration
+            and efficient data handling."
           />
           <ServicesSectionItem
             icon={<MdCode />}
-            title="web dev"
-            desc="I also develop the websites. I create high performance website with blazing fast speed."
+            title="Frontend"
+            desc="Build responsive, user-friendly interfaces in React, integrated seamlessly with backend APIs."
           />
           <ServicesSectionItem
-            icon={<MdPhonelinkSetup />}
-            title="app Dev"
-            desc="I develop mobile application. I create mobile app with eye catching ui."
+            icon={<LuBrainCog />}
+            title="Machine Learning"
+            desc="Develop machine learning pipelines with a focus on natural language processing, time series analysis, 
+            and computer vision."
           />
-          {/* Add more items as needed */}
+          <ServicesSectionItem
+            icon={<TbDatabaseSearch/>}
+            title="Data Engineering"
+            desc="Develop ETL scripts to efficiently process and transform data,
+            and create detailed charts and dashboards to support data analysis and decision-making."
+          />
+         
         </Slider>
       </div>
     </ServicesItemsStyles>

@@ -58,9 +58,8 @@ export default function Footer() {
         <div className="footer__col1">
           <h1 className="footer__col1__title">Michael Hills</h1>
           <PText>
-            A freelance web designer and developer from Chittagong, Bangladesh.
-            I always make websites that have unique designs and also has a good
-            performance rate.
+          Recent graduate with a Masters Degree in Computer Science.
+          Currently working at Fitch Ratings as an Associate Software Engineer.
           </PText>
         </div>
         <div className="footer__col2">
@@ -107,8 +106,8 @@ export default function Footer() {
               },
               {
                 type: 'External',
-                title: 'Wokingham, England',
-                path: 'https://www.google.com/maps/place/Wokingham/@51.4082329,-0.8345552,13z/data=!3m1!4b1!4m6!3m5!1s0x48768054d519454b:0xad1a36ae077fc0c2!8m2!3d51.410457!4d-0.833861!16zL20vMDFicDV0?entry=ttu&g_ep=EgoyMDI1MDEyMi4wIKXMDSoASAFQAw%3D%3D',
+                title: 'London, England',
+                path: 'https://www.google.com/maps/place/London/@51.5286416,-0.1015987,11z/data=!3m1!4b1!4m6!3m5!1s0x47d8a00baf21de75:0x52963a5addd52a99!8m2!3d51.5072178!4d-0.1275862!16zL20vMDRqcGw?entry=ttu&g_ep=EgoyMDI1MDQwMi4xIKXMDSoASAFQAw%3D%3D'
               },
             ]}
           />
@@ -119,19 +118,15 @@ export default function Footer() {
             links={[
               {
                 type: 'External',
-                title: 'Facebook',
-                path: 'http://facebook.com',
+                title: 'LinkedIn',
+                path: 'https://www.linkedin.com/in/michaeljhills1/',
               },
               {
                 type: 'External',
-                title: 'Twitter',
-                path: 'http://twitter.com',
+                title: 'GitHub',
+                path: 'https://github.com/Michael-Hills',
               },
-              {
-                type: 'External',
-                title: 'Instagram',
-                path: 'http://instagram.com',
-              },
+             
             ]}
           />
         </div>

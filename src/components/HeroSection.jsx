@@ -4,6 +4,7 @@ import Button from './Button';
 import SocialMediaArrow from '../assets/images/social-media-arrow.svg';
 import ScrollDownArrow from '../assets/images/scroll-down-arrow.svg';
 import PText from './PText';
+import { FaLinkedin, FaGithub } from 'react-icons/fa';
 
 const HeroStyles = styled.div`
   .hero {
@@ -95,10 +96,15 @@ const HeroStyles = styled.div`
         margin-bottom: 1rem;
         a {
           display: inline-block;
-          font-size: 1.6rem;
+          font-size: 2.4rem;
+          color: var(--white);
           transform: rotate(-90deg);
           letter-spacing: 5px;
-          margin-bottom: 2rem;
+          margin-bottom: 1rem;
+          transition: 0.3s ease transform;
+          &:hover {
+            transform: rotate(-90deg) scale(1.5);
+          }
         }
       }
     }
@@ -185,29 +191,20 @@ export default function HeroSection() {
               <ul>
                 <li>
                   <a
-                    href="http://facebook.com/webcifar"
+                    href="https://www.linkedin.com/in/michaeljhills1/"
                     target="_blank"
                     rel="noreferrer"
                   >
-                    FB
+                    <FaLinkedin/>
                   </a>
                 </li>
                 <li>
                   <a
-                    href="http://twitter.com/webcifar"
+                    href="https://github.com/Michael-Hills"
                     target="_blank"
                     rel="noreferrer"
                   >
-                    TW
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="http://webcifar.com"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    LI
+                    <FaGithub/>
                   </a>
                 </li>
               </ul>

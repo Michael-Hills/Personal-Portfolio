@@ -150,8 +150,8 @@ export default function About() {
               <h2 className="about__heading">Software Engineer</h2>
               <div className="about__info">
                 <PText>
-                Hi, I'm Michael Hills — a recent graduate from the University of Exeter, with
-                a First-Class Masters degree in Computer Science. I'm currently working as an Associate Software
+                Hi, I’m Michael Hills — a recent graduate from the University of Exeter, with
+                a First-Class Masters degree in Computer Science. I’m currently working as an Associate Software
                 Engineer at Fitch Ratings.
                 <br/><br/>
 
@@ -227,7 +227,7 @@ export default function About() {
               />
               <AboutInfoItem
                 title="Machine Learning"
-                items={['Pytorch', 'BERT', 'Huggiggface','Scikit-learn']}
+                items={['PyTorch', 'BERT', 'Hugging Face','Scikit-learn']}
               />
             </div>
             <div className="about__info__item">

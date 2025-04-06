@@ -8,10 +8,11 @@ import projectData from '../assets/data/projects';
 
 
 const ProjectSectionStyle = styled.div`
-  padding: 5rem 0;
+  padding: 10rem 0;
 
   .slick-slider {
     margin: 0 auto; /* Centers the carousel */
+    padding-top: 10rem;
   }
 
   .slick-prev,
@@ -67,6 +68,7 @@ const ProjectSectionStyle = styled.div`
     font-size: 2rem;
   }
   @media only screen and (max-width: 768px) {
+    padding: 5rem 0;
     .projects__allItems {
       flex-direction: column;
       max-width: 400px;
@@ -80,6 +82,7 @@ const ProjectSectionStyle = styled.div`
 
     .slick-slider {
       width: 80%; /* Further reduce for mobile */
+      padding-top: 5rem;
     }
   }
 `;

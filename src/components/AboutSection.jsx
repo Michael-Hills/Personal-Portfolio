@@ -5,7 +5,7 @@ import SectionTitle from './SectionTitle';
 import AboutImg from '../assets/images/about2.png';
 
 const AboutSectionStyles = styled.div`
-  padding: 5rem 0;
+  padding: 10rem 0;
   .container {
     display: flex;
     align-items: center;
@@ -52,6 +52,7 @@ const AboutSectionStyles = styled.div`
     
   }
   @media only screen and (max-width: 768px) {
+    padding: 5rem 0;
     .container {
       flex-direction: column;
       text-align: center;

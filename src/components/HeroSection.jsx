@@ -117,6 +117,7 @@ const HeroStyles = styled.div`
   @media only screen and (max-width: 768px) {
     .hero {
       margin-bottom: 5rem;
+
     }
     .hero__heading {
       font-size: 1.4rem;

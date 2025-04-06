@@ -24,12 +24,23 @@ const ButtonStyle = styled.div`
 `;
 
 
-export default function Button({ btnLink = 'Button', btnText = 'Button', outline = 'no' }) {
+export default function Button({ btnLink = 'Button', btnText = 'Button', outline = 'no', download= false}) {
     return (
-      <ButtonStyle $outline={outline}> {/* Pass outline as boolean */}
+      <ButtonStyle $outline={outline}>{download ? (
+        <a 
+          className="button" 
+          href={btnLink} 
+          download
+          target="_blank"
+          rel="noreferrer"
+        >
+          {btnText}
+        </a>
+      ) : (
         <Link className="button" to={btnLink}>
           {btnText}
         </Link>
+      )}
       </ButtonStyle>
     );
   }
@@ -38,5 +49,6 @@ export default function Button({ btnLink = 'Button', btnText = 'Button', outline
 Button.propTypes = {
     btnLink: PropTypes.string.isRequired, 
     btnText: PropTypes.string.isRequired,
-    outline: PropTypes.string
+    outline: PropTypes.string,
+    download: PropTypes.bool,
 }

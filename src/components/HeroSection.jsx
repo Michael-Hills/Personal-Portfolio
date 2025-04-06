@@ -33,7 +33,7 @@ const HeroStyles = styled.div`
     .hero__name {
       font-family: 'Montserrat SemiBold';
       font-size: 7rem;
-      color: var(--white);
+      color: var(--gray-1);
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
   }

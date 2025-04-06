@@ -5,6 +5,7 @@ import AboutImg from '../assets/images/about-page-img.png';
 import AboutInfoItem from '../components/AboutInfoItem';
 import ContactBanner from '../components/ContactBanner';
 import Footer from '../components/Footer';
+import { FaLinkedin, FaGithub } from 'react-icons/fa';
 
 const AboutPageStyles = styled.div`
   padding: 20rem 0 10rem 0;
@@ -57,21 +58,82 @@ const AboutPageStyles = styled.div`
     font-size: 3.6rem;
     text-transform: uppercase;
   }
+
+  .about__info__buttons {
+  display: flex;
+  align-items: flex-start; 
+  gap: 2rem;
+  
+  ul {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    height: 48px;
+    
+    li {
+      display: flex;
+      align-items: center; 
+      height: 100%;
+      
+      a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--gray-1);
+        min-height: 48px;
+        min-width: 48px;
+        font-size: 2.2rem;
+        transition: 0.3s ease background-color;
+      }
+    }
+  }
+}
+
   @media only screen and (max-width: 768px) {
     padding: 10rem 0;
     .top-section {
       flex-direction: column;
       gap: 5rem;
     }
+   
     .about__subheading {
       font-size: 1.8rem;
     }
     .about__heading {
       font-size: 2.8rem;
     }
+
+    .about__info__items{
+      margin-top: 10rem;
+    }
+
     .about__info__heading {
       font-size: 3rem;
     }
+
+    .right {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      
+      img {
+        max-width: 60%;
+        width: 350px;
+        height: auto;
+      }
+    }
+
+    .about__info__buttons {
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+      
+      ul {
+        justify-content: center;
+      }
+    }
+
+    
   }
 `;
 
@@ -88,24 +150,51 @@ export default function About() {
               <h2 className="about__heading">Software Engineer</h2>
               <div className="about__info">
                 <PText>
-                  I am from chittagong, Bangladesh. A place of beauty and
-                  nature. Since my childhood, i love art and design. I always
-                  try to design stuff with my unique point of view. I also love
-                  to create things that can be usefull to others.
-                  <br /> <br />
-                  I started coding since I was in high school. Coding is also an
-                  art for me. I love it and now I have the opportunity to design
-                  along with the coding. I find it really interesting and I
-                  enjoyed the process a lot.
-                  <br />
-                  <br />
-                  My vision is to make the world a better place. Now almost
-                  everything is becoming better than ever. It is time for us to
-                  create more good stuff that helps the world to become a better
-                  place.
+                Hi, I'm Michael Hills — a recent graduate from the University of Exeter, with
+                a First-Class Masters degree in Computer Science. I'm currently working as an Associate Software
+                Engineer at Fitch Ratings.
+                <br/><br/>
+
+                My journey into coding started back in secondary school. What began as curiosity quickly grew
+                into a passion, especially for building things that solve real-world problems — whether that’s
+                automating repetitive tasks, improving safety in sports, or uncovering useful insights through data.
+
+                <br/><br/>
+
+                Over time, I’ve developed a strong interest in both machine learning and full-stack web development.
+                I love creating intelligent applications — from training models on real-world data to crafting responsive
+                frontends and robust backends.
+
+                <br/><br/>
+
+                I’m always exploring new frameworks, tools, and ideas. My goal is simple: to build meaningful tech that
+                makes life a little smarter, safer, or just easier.
+
                 </PText>
               </div>
-              <Button btnText="Download CV" btnLink="#" />
+              <div className='about__info__buttons'>
+                <Button btnText="Download CV" btnLink="/MJ Hills - CV Mar'25 (1-pager) v1.0.pdf" download={true}/>
+                <ul>
+                  <li>
+                    <a
+                      href="https://www.linkedin.com/in/michaeljhills1/"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <FaLinkedin/>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://github.com/Michael-Hills"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <FaGithub/>
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
             <div className="right">
               <img src={AboutImg} alt="me" />
@@ -134,11 +223,11 @@ export default function About() {
               />
               <AboutInfoItem
                 title="BackEnd"
-                items={['Node', 'Express', 'PHP']}
+                items={['Python (FastAPI, Django)', 'Java (Springboot)']}
               />
               <AboutInfoItem
-                title="Design"
-                items={['Photoshop', 'After Effects', 'Figma']}
+                title="Machine Learning"
+                items={['Pytorch', 'BERT', 'Huggiggface','Scikit-learn']}
               />
             </div>
             <div className="about__info__item">

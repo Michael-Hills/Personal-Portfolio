@@ -7,24 +7,28 @@ const projectData = [
     id: 1,
     img: ProjectImg,
     title: 'web design',
+    category: ['Web Dev','Web Design'],
     desc: 'I do ui/ux design for the website that helps website to get a unique look.',
   },
   {
     id: 2,
     img: UTrackerImg,
     title: 'web dev',
+    category: ['Web Dev'],
     desc: 'I also develop the websites. I create high performance website with blazing fast speed.',
   },
   {
     id: 3,
     img: GreenCtgImg,
     title: 'app Dev',
+    category: ['App Dev'],
     desc: 'I develop mobile application. I create mobile app with eye catching ui.',
   },
   {
     id: 4,
     img: GreenCtgImg,
     title: 'app Dev',
+    category: ['App Dev'],
     desc: 'I develop mobile application. I create mobile app with eye catching ui.',
   },
   // Add more project items as needed

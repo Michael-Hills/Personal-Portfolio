@@ -13,7 +13,7 @@ const ProjectPageStyles = styled.div`
 
   .top-section {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     gap: 2rem;
   }
@@ -22,6 +22,9 @@ const ProjectPageStyles = styled.div`
   }
   .right {
     flex: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
   .project__heading {
@@ -36,7 +39,11 @@ const ProjectPageStyles = styled.div`
   }
   .right {
     img {
+     
       border: 2px solid var(--gray-1);
+      max-width: 80%;
+      height: auto;
+      margin-top: 5rem;
     }
   }
   
@@ -45,7 +52,7 @@ const ProjectPageStyles = styled.div`
   @media only screen and (max-width: 768px) {
     padding: 10rem 0;
     .top-section {
-      flex-direction: column-reverse;
+      flex-direction: column;
       gap: 5rem;
     }
     .project__subheading {
@@ -55,6 +62,11 @@ const ProjectPageStyles = styled.div`
       font-size: 2.8rem;
     }
     
+    .right {
+    img {
+      max-width: 70%;
+    }
+  }
   }
 `;
 
@@ -73,24 +85,10 @@ export default function ProjectDetailPage() {
         <div className="container">
           <div className="top-section">
             <div className="left">
-              <h2 className="project__heading">Project</h2>
+              <h2 className="project__heading">{project.title}</h2>
               <div className="project__info">
                 <PText>
-                  I am from chittagong, Bangladesh. A place of beauty and
-                  nature. Since my childhood, i love art and design. I always
-                  try to design stuff with my unique point of view. I also love
-                  to create things that can be usefull to others.
-                  <br /> <br />
-                  I started coding since I was in high school. Coding is also an
-                  art for me. I love it and now I have the opportunity to design
-                  along with the coding. I find it really interesting and I
-                  enjoyed the process a lot.
-                  <br />
-                  <br />
-                  My vision is to make the world a better place. Now almost
-                  everything is becoming better than ever. It is time for us to
-                  create more good stuff that helps the world to become a better
-                  place.
+                  {project.desc}
                 </PText>
               </div>
               
@@ -100,7 +98,7 @@ export default function ProjectDetailPage() {
 
               <ProjectTech
                   title="Project Category:"
-                  items={['HTML', 'CSS', 'JavaScript']}
+                  items={project.category}
                 />
                 
                 <ProjectTech
@@ -108,9 +106,11 @@ export default function ProjectDetailPage() {
                   items={['HTML', 'CSS', 'JavaScript', 'REACT','CSS', 'JavaScript', 'REACT']}
                 />
                 
-               
-
               </div>
+
+              <img
+                src={project.img}
+                alt={project.title}></img>
             </div>
           </div>
         </div>

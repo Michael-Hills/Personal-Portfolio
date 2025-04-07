@@ -6,7 +6,7 @@ const projectData = [
   {
     id: 1,
     img: ProjectImg,
-    title: 'web design',
+    title: 'Web Design',
     category: ['Web Dev','Web Design'],
     desc: 'I do ui/ux design for the website that helps website to get a unique look.',
   },

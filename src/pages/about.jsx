@@ -64,30 +64,71 @@ const AboutPageStyles = styled.div`
   align-items: flex-start; 
   gap: 2rem;
   
-  ul {
-    display: flex;
-    gap: 1rem;
-    margin-top: 2rem;
-    height: 48px;
-    
-    li {
+    ul {
       display: flex;
-      align-items: center; 
-      height: 100%;
+      gap: 1rem;
+      margin-top: 2rem;
+      height: 48px;
       
-      a {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--gray-1);
-        min-height: 48px;
-        min-width: 48px;
-        font-size: 2.2rem;
-        transition: 0.3s ease background-color;
+      li {
+        display: flex;
+        align-items: center; 
+        height: 100%;
+        
+        a {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          color: var(--gray-1);
+          min-height: 48px;
+          min-width: 48px;
+          font-size: 2.2rem;
+          transition: 0.3s ease background-color;
+        }
       }
     }
   }
+
+  .experience__bullets{
+    margin: 2rem 0 3rem 2rem;
+    list-style-type: disc;
+    color: var(--gray-2);
+    font-size: 1.6rem;
+    line-height: 1.3;
+    padding-left: 4rem;
+    
+    li {
+      margin-bottom: 0.5rem;
+      display: list-item;
+      list-style: disc outside;
+      color: var(--gray-1);
+
+
+      ul {
+        margin-top: 0.5rem;
+        margin-bottom: 2rem;
+        padding-left: 2rem;
+        
+        li {
+          list-style-type: circle;
+          font-size: 1.5rem;
+        }
+      }
+    }
+
+
+  }
+
+  .rotation__intro {
+  margin: 2rem 0 1rem 2rem;
+  color: var(--gray-1);
+  font-size: 1.6rem;
+  line-height: 1.3;
+  padding-left: 1.5rem;
 }
+
+  
+  
 
   @media only screen and (max-width: 768px) {
     padding: 10rem 0;
@@ -132,6 +173,29 @@ const AboutPageStyles = styled.div`
         justify-content: center;
       }
     }
+
+    .experience__bullets {
+    padding-left: 2rem;
+    font-size: 1.4rem;
+
+    li {
+      font-size: 1.4rem;  
+      
+      ul {
+        li {
+          font-size: 1.3rem;  
+        }
+      }
+    }
+  }
+
+    .rotation__intro {
+    font-size: 1.4rem;
+    padding-left: 0rem;
+    }
+
+
+
 
     
   }
@@ -217,17 +281,22 @@ export default function About() {
             <div className="about__info__item">
               <h1 className="about__info__heading">My Skills</h1>
 
-              <AboutInfoItem
-                title="FrontEnd"
-                items={['HTML', 'CSS', 'JavaScript', 'REACT']}
-              />
+              
               <AboutInfoItem
                 title="BackEnd"
                 items={['Python (FastAPI, Django)', 'Java (Springboot)']}
               />
               <AboutInfoItem
+                title="FrontEnd"
+                items={['HTML', 'CSS', 'JavaScript', 'REACT']}
+              />
+              <AboutInfoItem
                 title="Machine Learning"
                 items={['PyTorch', 'BERT', 'Hugging Face','Scikit-learn']}
+              />
+              <AboutInfoItem
+                title="Data & Analytics"
+                items={['SQL', 'Pandas', 'Qlik', 'PowerBI']}
               />
             </div>
             <div className="about__info__item">
@@ -235,12 +304,40 @@ export default function About() {
 
               <AboutInfoItem
                 title="2020-2024"
-                items={['MSci Computer Science, UoE']}
+                items={['MSci Computer Science, University of Exeter']}
               />
+
+              <ul className="experience__bullets">
+                <li>Graduated with First Class Honours, specialising in Machine Learning and Software Engineering</li>
+                <li>Developed multiple deep learning models for NLP and time series analysis</li>
+                <li>Key modules: Artificial Intelligence, Social Networks & Text Analysis, Multi-Objective Optimisation</li>
+              </ul>
+              
+
               <AboutInfoItem
                 title="Sept 2024-Present"
                 items={['Associate Software Engineer (ASE), Fitch Ratings']}
               />
+
+              <p className="rotation__intro">
+                <strong>3 Month Rotations:</strong>
+              </p>
+
+              <ul className="experience__bullets">
+                <li>BMI-Data Transformation:
+                  <ul>
+                    <li>Developed a full-stack web application using FastAPI backend, PostgreSQL database, and React frontend</li>
+                    <li>Contributed to backend API design, frontend development, and data transformation workflows in an agile team</li>
+                  </ul>
+                </li>
+                <li>CDO-Enterprise Data Analytics:
+                  <ul>
+                    <li>Built a web app to track usage, costs, and ROI for Fitch products, using Qlik ETL scripts, AngularJS, and Qlik APIs</li>
+                    <li>Created a user behaviour based product recommendation system utilising BERTopic text clustering and market basket analysis</li>
+                  </ul>
+                </li>
+              </ul>
+              
              
             </div>
           </div>

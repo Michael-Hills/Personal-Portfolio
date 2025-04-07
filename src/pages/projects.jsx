@@ -127,7 +127,7 @@ export default function Projects() {
         <div className="container">
           <SectionTitle
             heading="Projects"
-            subheading="some of my recent works"
+            subheading="some of my recent"
           />
           <div className="projects__filters">
             <h1>Search: </h1>

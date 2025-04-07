@@ -55,7 +55,7 @@ const AboutPageStyles = styled.div`
     margin-top: 15rem;
   }
   .about__info__item {
-    margin-bottom: 10rem;
+    margin-bottom: 7rem;
   }
   .about__info__heading {
     font-size: 3.6rem;
@@ -265,20 +265,28 @@ export default function About() {
           </div>
           <div className="about__info__items">
             <div className="about__info__item">
-              <h1 className="about__info__heading">Education</h1>
+              <h1 className="about__info__heading">Education:</h1>
 
               <AboutInfoItem
                 title="School"
                 items={['Reading Blue Coat School']}
               />
+
+              <p className="rotation__intro">
+                <strong>- A* Maths, A* Further Maths, A* Physics, A* Geology</strong>
+              </p>
               <AboutInfoItem
                 title="University"
                 items={['University of Exeter']}
               />
+
+              <p className="rotation__intro">
+                <strong>- First Class Masters in Computer Science</strong>
+              </p>
              
             </div>
             <div className="about__info__item">
-              <h1 className="about__info__heading">My Skills</h1>
+              <h1 className="about__info__heading">My Skills:</h1>
 
               
               <AboutInfoItem
@@ -299,7 +307,7 @@ export default function About() {
               />
             </div>
             <div className="about__info__item">
-              <h1 className="about__info__heading">Experience</h1>
+              <h1 className="about__info__heading">Experience:</h1>
 
               <AboutInfoItem
                 title="2020-2024"

@@ -71,9 +71,6 @@ const AboutSectionStyles = styled.div`
       }
     }
 
-    
-
-   
 
     .section-title {
       text-align: center;

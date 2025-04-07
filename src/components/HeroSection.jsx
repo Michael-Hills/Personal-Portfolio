@@ -51,6 +51,14 @@ const HeroStyles = styled.div`
       color: white !important; 
       
     }
+
+    /*
+    .button{
+      background-color: var(--gray-2);
+      color: white;
+      border: 2px solid var(--gray-2);
+    }
+      */
     
   }
   .hero__social,

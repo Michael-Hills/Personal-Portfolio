@@ -38,20 +38,30 @@ const GlobalStyles = createGlobalStyle`
     width: 90%;
     margin: 0 auto;
   }
-/* Smooth Scroll  */
-  [data-scrollbar] {
+
+  .smooth-scroll-container {
     height: 100vh;
-    overflow: hidden;
-    background-color: var(--gray-1);
-    .scroll-content {
-      background-color: var(--dark-bg);
+    z-index: 1;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    background-color: var(--dark-bg);
+    
+    
+    /* Custom scrollbar styles */
+    &::-webkit-scrollbar {
+        width: 8px;
     }
-    .scrollbar-track.scrollbar-track-y {
-      background: var(--deep-dark);
-      .scrollbar-thumb-y {
-        background: var(--gray-1);
-      }
+    
+    &::-webkit-scrollbar-track {
+        background: var(--deep-dark);
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--gray-1);
+        border-radius: 4px;
     }
   }
+
+
 `;
 export default GlobalStyles;

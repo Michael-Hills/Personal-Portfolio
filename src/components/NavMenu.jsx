@@ -12,7 +12,7 @@ const NavStyles = styled.nav`
   z-index: 100;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 99%;
   padding: 1rem 0;
   background: var(--dark-bg);
   ul {

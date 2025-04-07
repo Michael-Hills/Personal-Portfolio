@@ -11,6 +11,7 @@ import Contact from './pages/contact'
 import ProjectDetailPage from './components/ProductDetailPage'
 import GlobalStyles from './styles/GlobalStyle';
 import Typography from './styles/Typography';
+import SmoothScrollbar from './components/SmoothScrollbar';
 import ScrollToTop from './components/ScrollToTop';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -33,9 +34,8 @@ function AppContent() {
       <Typography/>
       <Router>
         <NavMenu />
+        <SmoothScrollbar>
         <ScrollToTop />
-
-
         <Routes>
           <Route path="/" element={<Home />} /> 
           <Route path="/about" element={<About />} />
@@ -43,6 +43,8 @@ function AppContent() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/project/:id" element={<ProjectDetailPage/>} />
         </Routes>
+
+        </SmoothScrollbar>
       </Router>
     </StyledThemeProvider>
   );

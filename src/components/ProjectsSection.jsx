@@ -117,7 +117,7 @@ export default function ProjectsSection() {
     return (
         <ProjectSectionStyle>
           <div className="container">
-          <SectionTitle subheading="some of my" heading="Projects" />
+          <SectionTitle subheading="some of my" heading="Projects:" />
           <Slider {...settings} className="services__carousel">
             {projectData.map((project) => (
               <ProjectItem

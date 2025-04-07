@@ -95,7 +95,7 @@ export default function ServicesSection() {
   return (
     <ServicesItemsStyles>
       <div className="container">
-        <SectionTitle subheading="What are" heading="My Skills" />
+        <SectionTitle subheading="What are" heading="My Skills:" />
         <Slider {...settings} className="services__carousel">
           <ServicesSectionItem
             icon={<CiServer />}

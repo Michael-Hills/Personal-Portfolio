@@ -213,7 +213,7 @@ export default function About() {
               <h2 className="about__heading">Software Engineer</h2>
               <div className="about__info">
                 <PText>
-                Hi, I’m Michael Hills — a recent graduate from the University of Exeter, with
+                A recent graduate from the University of Exeter, with
                 a First-Class Masters degree in Computer Science. I’m currently working as an Associate Software
                 Engineer at Fitch Ratings.
                 <br/><br/>

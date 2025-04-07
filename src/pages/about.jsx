@@ -5,16 +5,18 @@ import AboutImg from '../assets/images/about-page-img.png';
 import AboutInfoItem from '../components/AboutInfoItem';
 import ContactBanner from '../components/ContactBanner';
 import Footer from '../components/Footer';
+import SectionTitle from '../components/SectionTitle';
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
 
 const AboutPageStyles = styled.div`
-  padding: 20rem 0 10rem 0;
+  padding: 10rem 0 10rem 0;
 
   .top-section {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 2rem;
+    margin-top: 7rem;
   }
   .left {
     flex: 3;
@@ -193,12 +195,7 @@ const AboutPageStyles = styled.div`
     .rotation__intro {
     font-size: 1.4rem;
     padding-left: 0rem;
-    }
-
-
-
-
-    
+    }    
   }
 `;
 
@@ -207,6 +204,7 @@ export default function About() {
     <>
       <AboutPageStyles>
         <div className="container">
+          <SectionTitle heading="About Me" subheading=''/>
           <div className="top-section">
             <div className="left">
               <p className="about__subheading">

@@ -11,6 +11,7 @@ import Contact from './pages/contact'
 import ProjectDetailPage from './components/ProductDetailPage'
 import GlobalStyles from './styles/GlobalStyle';
 import Typography from './styles/Typography';
+import ScrollToTop from './components/ScrollToTop';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
@@ -32,6 +33,8 @@ function AppContent() {
       <Typography/>
       <Router>
         <NavMenu />
+        <ScrollToTop />
+
 
         <Routes>
           <Route path="/" element={<Home />} /> 

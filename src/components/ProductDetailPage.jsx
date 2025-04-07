@@ -71,8 +71,8 @@ const ProjectPageStyles = styled.div`
 `;
 
 export default function ProjectDetailPage() {
-  const { id } = useParams(); // Get the project ID from the URL
-  const project = projectData.find(p => p.id === Number(id)); // Convert id to a number before comparison
+  const { id } = useParams(); 
+  const project = projectData.find(p => p.id === Number(id)); 
 
   if (!project) {
     return <div>Project not found!</div>;
@@ -109,6 +109,7 @@ export default function ProjectDetailPage() {
               </div>
 
               <img
+                id={`project-image-${project.id}`}
                 src={project.img}
                 alt={project.title}></img>
             </div>

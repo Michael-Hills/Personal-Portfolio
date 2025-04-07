@@ -147,6 +147,7 @@ export default function Projects() {
             <h1>Category: </h1>
             <div className="projects__category">
               <select
+                id="categorySelect"
                 value={selectedCategory}
                 onChange={handleCategoryChange}
               >

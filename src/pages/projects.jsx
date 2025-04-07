@@ -126,7 +126,7 @@ export default function Projects() {
       <ProjectStyle>
         <div className="container">
           <SectionTitle
-            heading="Projects"
+            heading="Projects:"
             subheading="some of my recent"
           />
           <div className="projects__filters">

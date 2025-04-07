@@ -21,6 +21,8 @@ const HeroStyles = styled.div`
 
   .container{
     margin-top: 10rem;
+    max-width: 1400px;
+    position: relative;
   }
   .hero__heading {
     font-size: 2rem;
@@ -72,10 +74,10 @@ const HeroStyles = styled.div`
     width: 50px;
   }
   .hero__social {
-    left: 50px;
+    left: -50px;
   }
   .hero__scrollDown {
-    right: 50px;
+    right: -50px;
   }
 
   .hero__social__indicator,
@@ -145,7 +147,7 @@ const HeroStyles = styled.div`
       }
     }
     .hero__social {
-      left: 0px;
+      left: -20px;
       bottom: -15%;
       width: 20px;
       .hero__social__indicator {
@@ -154,14 +156,14 @@ const HeroStyles = styled.div`
           font-size: 1.2rem;
         }
         img {
-          max-height: 22px;
+          max-height:30px;
         }
       }
       .hero__social__text {
         ul {
           li {
             a {
-              font-size: 1.2rem;
+              font-size: 2rem;
               margin-bottom: 1rem;
             }
           }
@@ -170,14 +172,18 @@ const HeroStyles = styled.div`
     }
 
     .hero__scrollDown{
+
+      width: 20px;
       margin-right: 1rem;
+      right: -20px;
+   
     }
 
     .hero__social {
       margin-left: 1rem;
     }
     .hero__scrollDown, .hero__social {
-      right: 0;
+     
       width: 20px;
       gap: 1rem;
       bottom: 20rem;

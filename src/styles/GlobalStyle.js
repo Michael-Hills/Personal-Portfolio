@@ -50,6 +50,10 @@ const GlobalStyles = createGlobalStyle`
     /* Custom scrollbar styles */
     &::-webkit-scrollbar {
         width: 8px;
+        @media only screen and (max-width: 768px) {
+          width: 3px; 
+          
+        }
     }
     
     &::-webkit-scrollbar-track {
@@ -60,6 +64,8 @@ const GlobalStyles = createGlobalStyle`
         background-color: var(--gray-1);
         border-radius: 4px;
     }
+
+    
   }
 
 

@@ -1,9 +1,10 @@
 import Footer from '../components/Footer'
+import ContactSection from '../components/ContactSection'
 
 export default function contact() {
   return (
     <div>
-      <h1>This is contact page</h1>
+      <ContactSection/>
     
 
     <Footer/>

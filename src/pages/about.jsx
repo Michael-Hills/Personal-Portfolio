@@ -46,6 +46,7 @@ const AboutPageStyles = styled.div`
       border: 2px solid var(--gray-1);
       max-width: 80%;
       height: auto;
+      display: none;
     }
   }
   .about__info__items {

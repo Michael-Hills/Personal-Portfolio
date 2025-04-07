@@ -39,7 +39,7 @@ const FormStyle = styled.form`
   width: 100%;
   .form-group {
     width: 100%;
-    margin-bottom: 2rem;
+    margin-bottom: 0rem;
   }
   label {
     font-size: 1.8rem;
@@ -57,7 +57,7 @@ const FormStyle = styled.form`
     margin-top: 1rem;
   }
   textarea {
-    min-height: 250px;
+    min-height: 150px;
     resize: vertical;
   }
   button[type='submit'] {
@@ -70,6 +70,7 @@ const FormStyle = styled.form`
     padding: 1rem 4rem;
     border-radius: 8px;
     cursor: pointer;
+    margin-top: 2rem;
   }
 `;
 

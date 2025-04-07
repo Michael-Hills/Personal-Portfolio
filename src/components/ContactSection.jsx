@@ -26,11 +26,14 @@ const ContactSectionStyle = styled.div`
   .left {
     width: 100%;
     max-width: 500px;
+    order: 2;
   }
   .right {
     max-width: 500px;
     width: 100%;
     border-radius: 12px;
+    order: 1;
+    margin-top: -3.5rem;
     /* padding-left: 3rem; */
   }
   @media only screen and (max-width: 768px) {

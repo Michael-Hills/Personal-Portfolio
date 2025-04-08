@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import projectData from '../assets/data/projects'; 
-
+import Button from './Button';
 import styled from 'styled-components';
 import PText from '../components/PText';
 import ContactBanner from '../components/ContactBanner';
@@ -43,6 +43,22 @@ const ProjectPageStyles = styled.div`
     .project__info__items {
       width: 100%;
     }
+
+    .project__buttons {
+      padding-top: 3rem;
+      display: flex;
+      gap: 3rem;
+      width: 90%;
+      justify-content: center;
+      margin: 0 auto;
+
+      .button{
+        font-size: 1.8rem;
+        padding: 1rem 1rem 1rem 1rem;
+      }
+      
+
+    }
     img {
      
       border: 2px solid var(--gray-1);
@@ -70,10 +86,39 @@ const ProjectPageStyles = styled.div`
     
     .right {
       align-items: center;
+      display: flex;
+      flex-direction: column;
       img {
         max-width: 80%;
       }
-  }
+    }
+    
+    .right {
+      .project__buttons {
+        order: 1;
+        gap: 2rem;
+        align-items: center;
+        padding-left: 0;
+        align-items: center;
+        padding-top: 0rem;
+
+        .button{
+          font-size: 1.6rem;
+        }
+      }
+
+      .project__info__items {
+      order: 2;
+      margin-top: 2rem;
+      }
+
+      img {
+        order: 3;
+        max-width: 80%;
+        margin-top: 3rem;
+      }
+      
+    }
   }
 `;
 
@@ -112,8 +157,28 @@ export default function ProjectDetailPage() {
                   title="Tech Stack:"
                   items={project.tech_stack}
                 />
-                
               </div>
+
+              {(project.githubLink || project.reportLink) && (
+                <div className="project__buttons">
+                  {project.githubLink && (
+                    <Button 
+                    btnText="View on GitHub" 
+                    btnLink={project.githubLink} 
+                    outline="no"
+                    download={true}
+                  />
+                  )}
+                  {project.reportLink && (
+                    <Button 
+                      btnText="Download Report" 
+                      btnLink={project.reportLink} 
+                      outline="no"
+                      download={true}
+                    />
+                  )}
+                </div>
+              )} {}
 
               <img
                 id={`project-image-${project.id}`}

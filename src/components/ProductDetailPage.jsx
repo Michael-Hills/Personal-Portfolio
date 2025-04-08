@@ -9,7 +9,7 @@ import ProjectTech from './ProjectTech';
 
 
 const ProjectPageStyles = styled.div`
-  padding: 20rem 0 10rem 0;
+  padding: 15rem 0 10rem 0;
 
   .top-section {
     display: flex;
@@ -35,15 +35,21 @@ const ProjectPageStyles = styled.div`
     margin-bottom: 4rem;
     .para {
       max-width: 100%;
+      white-space: pre-wrap
     }
   }
   .right {
+
+    .project__info__items {
+      width: 100%;
+    }
     img {
      
       border: 2px solid var(--gray-1);
-      max-width: 80%;
+      max-width: 90%;
       height: auto;
       margin-top: 5rem;
+      
     }
   }
   
@@ -53,7 +59,7 @@ const ProjectPageStyles = styled.div`
     padding: 10rem 0;
     .top-section {
       flex-direction: column;
-      gap: 5rem;
+      gap: 0rem;
     }
     .project__subheading {
       font-size: 1.8rem;
@@ -63,9 +69,10 @@ const ProjectPageStyles = styled.div`
     }
     
     .right {
-    img {
-      max-width: 70%;
-    }
+      align-items: center;
+      img {
+        max-width: 80%;
+      }
   }
   }
 `;
@@ -88,7 +95,7 @@ export default function ProjectDetailPage() {
               <h2 className="project__heading">{project.title}</h2>
               <div className="project__info">
                 <PText>
-                  {project.desc}
+                  {project.long_desc}
                 </PText>
               </div>
               
@@ -98,12 +105,12 @@ export default function ProjectDetailPage() {
 
               <ProjectTech
                   title="Project Category:"
-                  items={project.category}
+                  items={project.long_category}
                 />
                 
                 <ProjectTech
                   title="Tech Stack:"
-                  items={['HTML', 'CSS', 'JavaScript', 'REACT','CSS', 'JavaScript', 'REACT']}
+                  items={project.tech_stack}
                 />
                 
               </div>

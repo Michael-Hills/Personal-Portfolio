@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import HeroImg from '../assets/images/test3.jpg';
+import HeroImg from '../assets/images/hero_b&w.jpg';
 import Button from './Button';
 import SocialMediaArrow from '../assets/images/social-media-arrow.svg';
 import ScrollDownArrow from '../assets/images/scroll-down-arrow.svg';

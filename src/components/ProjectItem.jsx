@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import ProjectImg from '../assets/images/projectImg.png';
+import ProjectImg from '../assets/images/customer-support.jpg';
 import PropTypes from 'prop-types';
 
 const ProjectItemStyles = styled.div`
@@ -31,12 +31,14 @@ const ProjectItemStyles = styled.div`
 
   .projectItem__header {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     gap: 1rem;
   }
   .projectItem__title {
     font-size: 1.8rem;
+    flex: 1;
+    margin-right: 1rem;
   }
   .projectItem__desc {
     font-size: 1.4rem;

@@ -123,10 +123,10 @@ export default function ProjectsSection() {
               <ProjectItem
                 key={project.id} // Unique key for each project
                 id={project.id}  // Passing the unique project id
-                category={project.category}
+                category={project.short_category}
                 img={project.img}
                 title={project.title}
-                desc={project.desc}
+                desc={project.short_desc}
               />
             ))}
           </Slider>

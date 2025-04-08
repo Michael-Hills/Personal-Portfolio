@@ -88,7 +88,7 @@ export default function Projects() {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [projectsData, setProjectsData] = useState(ProjectsInfo);
 
-  const categories = ['All', ...new Set(ProjectsInfo.flatMap(project => project.category))];
+  const categories = ['All', ...new Set(ProjectsInfo.flatMap(project => project.short_category))];
 
   useEffect(() => {
     filterProjects();
@@ -165,8 +165,8 @@ export default function Projects() {
                 key={item.id}
                 id = {item.id}
                 title={item.title}
-                category={item.category}
-                desc={item.desc}
+                category={item.short_category}
+                desc={item.short_desc}
                 img={item.img}
                 width = "100%"
               />

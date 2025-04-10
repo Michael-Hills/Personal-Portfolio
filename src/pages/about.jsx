@@ -236,7 +236,7 @@ export default function About() {
                 </PText>
               </div>
               <div className='about__info__buttons'>
-                <Button btnText="Download CV" btnLink="/MJ Hills - CV Mar'25 (1-pager) v1.0.pdf" download={true}/>
+                <Button btnText="Download CV" btnLink="https://raw.githubusercontent.com/Michael-Hills/Personal-Portfolio/main/public/MJ Hills - CV Mar'25 (1-pager) v1.0.pdf"  download={true}/>
                 <ul>
                   <li>
                     <a

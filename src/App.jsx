@@ -32,7 +32,7 @@ function AppContent() {
     <StyledThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
       <GlobalStyles />
       <Typography/>
-      <Router>
+      <Router basename='/Personal-Portfolio'>
         <NavMenu />
         <SmoothScrollbar>
         <ScrollToTop />

@@ -7,6 +7,9 @@
     <title>Michael Hills</title>
     <script type="text/javascript">
       (function (l) {
+        if (l.pathname.split("/")[1] === "Personal-Portfolio") {
+          return;
+        }
         if (l.search[1] === "/") {
           var decoded = l.search
             .slice(1)

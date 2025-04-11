@@ -105,7 +105,7 @@ export default function Projects() {
 
     if (selectedCategory !== 'All') {
       filtered = filtered.filter((item) =>
-        item.category.includes(selectedCategory)
+        item.short_category.includes(selectedCategory)
       );
     }
 

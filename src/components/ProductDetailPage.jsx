@@ -14,18 +14,21 @@ const ProjectPageStyles = styled.div`
   .top-section {
     display: flex;
     align-items: flex-start;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 2rem;
     margin-bottom: 2rem;
   }
   .left {
     flex: 3;
+    min-width: 60%;
+    margin-right: 2rem;
   }
   .right {
-    flex: 2;
+    flex: 0 1 auto;
+    max-width: 40%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
   }
   
   .project__heading {
@@ -44,7 +47,7 @@ const ProjectPageStyles = styled.div`
     .project__info__items {
       width: 100%;
       margin-top: -9rem;
-      margin-left: 2rem;
+     
     }
 
     .project__buttons {
@@ -73,6 +76,8 @@ const ProjectPageStyles = styled.div`
       border: 2px solid var(--gray-1);
       max-width: 40%;
       height: auto;
+      aspect-ratio: 3/2;
+      object-fit: cover;
     }
   }
 
@@ -85,6 +90,7 @@ const ProjectPageStyles = styled.div`
     .top-section {
       flex-direction: column;
       gap: 0rem;
+      align-items: center;
     }
     .project__subheading {
       font-size: 1.8rem;
@@ -98,6 +104,7 @@ const ProjectPageStyles = styled.div`
     }
     
     .right {
+      max-width: 100%;
       align-items: center;
       display: flex;
       flex-direction: column;

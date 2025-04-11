@@ -50,7 +50,7 @@ const projectData = [
     long_category: ['Frontend', 'UI/UX', 'Web Development'],
     short_desc: 'A personal portfolio website built using React, HTML, and CSS to showcase projects, skills, and experience through a clean, responsive, and interactive design.',
     long_desc: 'This project involved designing and developing a personal portfolio website using React, HTML, and plain CSS, without relying on any pre-made component libraries. The site was built to showcase my projects, skills, and experience in a clean and professional format, with a strong emphasis on performance and accessibility. The design is fully responsive, ensuring a seamless experience across devices of all screen sizes. A custom-built light/dark mode toggle allows users to switch themes dynamically. All styling was done using vanilla CSS, giving me full control over the visual identity and ensuring a consistent, cohesive look throughout the site.',
-    tech_stack: ['React', 'JavaScript', 'HTML', 'CSS'],
+    tech_stack: ['JavaScript', 'React', 'HTML', 'CSS'],
     githubLink: 'https://github.com/Michael-Hills/Personal-Portfolio',
   },
   {

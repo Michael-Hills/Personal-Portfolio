@@ -214,7 +214,7 @@ export default function About() {
               <div className="about__info">
                 <PText>
                 A recent graduate from the University of Exeter, with
-                a First-Class Masters degree in Computer Science. I’m currently working as an Associate Software
+                a First-Class Masters degree in Computer Science, currently working as an Associate Software
                 Engineer at Fitch Ratings.
                 <br/><br/>
 

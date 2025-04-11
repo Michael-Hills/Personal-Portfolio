@@ -58,7 +58,7 @@ const projectData = [
     title: 'Colab Charity Internal System',
     short_category: ['Backend'],
     long_category: ['Backend', 'Web Development', 'API' ,'SQL'],
-    short_desc: 'A Django-based web platform developed as a proof of concept to replace CoLab’s spreadsheet system, streamlining client tracking, workshop scheduling, and data analysis for more personalized support of individuals with complex needs',
+    short_desc: 'A Django-based web platform to replace CoLab’s internal spreadsheet system, streamlining client tracking, workshop scheduling, and data analysis for more personalized support',
     long_desc: 'This group project developed a web-based platform for CoLab, a wellbeing charity in Exeter, to replace their spreadsheet-based system with a Django-powered application as a proof of concept. As the lead backend engineer, I played a key role in streamlining client profile tracking, workshop scheduling, and data analysis. The platform enhances internal operations and enables more effective, personalized support for individuals with complex needs. Built using Django, HTML, and CSS, the system offers a scalable and maintainable solution tailored to the charity\'s unique requirements.',
     tech_stack: ['Python', 'Django', 'SQL','HTML', 'CSS'],
     githubLink: 'https://github.com/Michael-Hills/Group-Software-Project-4th'

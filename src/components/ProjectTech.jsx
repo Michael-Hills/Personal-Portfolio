@@ -35,20 +35,23 @@ const ProjectTechStyles = styled.div`
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
+    
     .items {
       position: initial;
       gap: 1rem;
+      justify-content: center;
+      margin-left: 0;
     }
   }
 `;
 
 export default function ProjectTech({
-  title = 'Tech Stack:',
+  title,
   items = ['HTML', 'CSS'],
 }) {
   return (
     <ProjectTechStyles>
-      <h1 className="title">{title}</h1>
+      {title && <h1 className="title">{title}</h1>}
       <div className="items">
         {items.map((item, index) => (
           <div className="item" key={index}>
@@ -61,6 +64,6 @@ export default function ProjectTech({
 }
 
 ProjectTech.propTypes = {
-    title: PropTypes.string.isRequired,
+    title: PropTypes.string,
     items: PropTypes.arrayOf(PropTypes.string).isRequired,
   };

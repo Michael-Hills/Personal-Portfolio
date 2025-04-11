@@ -16,6 +16,7 @@ const ProjectPageStyles = styled.div`
     align-items: flex-start;
     justify-content: center;
     gap: 2rem;
+    margin-bottom: 2rem;
   }
   .left {
     flex: 3;
@@ -42,6 +43,8 @@ const ProjectPageStyles = styled.div`
 
     .project__info__items {
       width: 100%;
+      margin-top: -9rem;
+      margin-left: 2rem;
     }
 
     .project__buttons {
@@ -59,15 +62,21 @@ const ProjectPageStyles = styled.div`
       
 
     }
+  }
+
+  .project__img {
+    display: flex;
+    justify-content: center;
+    margin-top: 10rem;
+
     img {
-     
       border: 2px solid var(--gray-1);
-      max-width: 90%;
+      max-width: 40%;
       height: auto;
-      margin-top: 5rem;
-      
     }
   }
+
+
   
 
   
@@ -82,6 +91,10 @@ const ProjectPageStyles = styled.div`
     }
     .project__heading {
       font-size: 2.8rem;
+    }
+
+    .left{
+
     }
     
     .right {
@@ -108,16 +121,18 @@ const ProjectPageStyles = styled.div`
       }
 
       .project__info__items {
-      order: 2;
-      margin-top: 2rem;
-      }
+        order: 2;
+        margin-top: 2rem;
+      }      
+    }
 
-      img {
-        order: 3;
-        max-width: 80%;
+    .project__img{
         margin-top: 3rem;
+
+        img {
+          
+          max-width: 60%;
       }
-      
     }
   }
 `;
@@ -135,9 +150,9 @@ export default function ProjectDetailPage() {
     <>
       <ProjectPageStyles>
         <div className="container">
+          <h2 className="project__heading">{project.title}</h2>
           <div className="top-section">
             <div className="left">
-              <h2 className="project__heading">{project.title}</h2>
               <div className="project__info">
                 <PText>
                   {project.long_desc}
@@ -149,7 +164,6 @@ export default function ProjectDetailPage() {
               <div className="project__info__items">  
 
               <ProjectTech
-                  title="Project Category:"
                   items={project.long_category}
                 />
                 
@@ -179,12 +193,13 @@ export default function ProjectDetailPage() {
                   )}
                 </div>
               )} {}
-
-              <img
+            </div>
+          </div>
+          <div className='project__img'>
+            <img
                 id={`project-image-${project.id}`}
                 src={project.img}
                 alt={project.title}></img>
-            </div>
           </div>
         </div>
         <ContactBanner />

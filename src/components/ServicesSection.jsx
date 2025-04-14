@@ -39,9 +39,7 @@ const ServicesItemsStyles = styled.div`
   }
 
 
-  .services__carousel {
-    margin-top: 5rem;
-  }
+  
   .slick-slide {
     display: flex !important;
     justify-content: center;

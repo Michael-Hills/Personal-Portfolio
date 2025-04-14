@@ -38,12 +38,12 @@ const AboutItemStyles = styled.div`
 `;
 
 export default function AboutInfoItem({
-  title = 'Title',
+  title = '',
   items = ['HTML', 'CSS'],
 }) {
   return (
     <AboutItemStyles>
-      <h1 className="title">{title}</h1>
+      {title && <h1 className="title">{title}</h1>}
       <div className="items">
         {items.map((item, index) => (
           <div className="item" key={index}>
@@ -56,6 +56,6 @@ export default function AboutInfoItem({
 }
 
 AboutInfoItem.propTypes = {
-    title: PropTypes.string.isRequired,
+    title: PropTypes.string,
     items: PropTypes.arrayOf(PropTypes.string).isRequired,
   };

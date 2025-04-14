@@ -55,7 +55,11 @@ const AboutPageStyles = styled.div`
     margin-top: 15rem;
   }
   .about__info__item {
-    margin-bottom: 7rem;
+    margin-bottom: 10rem;
+
+    .items{
+      margin-top: 1rem;
+    }
   }
   .about__info__heading {
     font-size: 3.6rem;
@@ -268,7 +272,6 @@ export default function About() {
               <h1 className="about__info__heading">Education:</h1>
 
               <AboutInfoItem
-                title="School"
                 items={['Reading Blue Coat School']}
               />
 
@@ -276,7 +279,6 @@ export default function About() {
                 <strong>- A* Maths, A* Further Maths, A* Physics, A* Geology</strong>
               </p>
               <AboutInfoItem
-                title="University"
                 items={['University of Exeter']}
               />
 
@@ -290,19 +292,19 @@ export default function About() {
 
               
               <AboutInfoItem
-                title="BackEnd"
+                title="BackEnd: "
                 items={['Python (FastAPI, Django)', 'Java (Spring Boot)']}
               />
               <AboutInfoItem
-                title="FrontEnd"
+                title="FrontEnd: "
                 items={['HTML', 'CSS', 'JavaScript', 'REACT']}
               />
               <AboutInfoItem
-                title="Machine Learning"
+                title="Machine Learning: "
                 items={['PyTorch', 'BERT', 'Hugging Face','Scikit-learn']}
               />
               <AboutInfoItem
-                title="Data & Analytics"
+                title="Data & Analytics: "
                 items={['SQL', 'Pandas', 'Qlik', 'PowerBI']}
               />
             </div>
@@ -310,19 +312,18 @@ export default function About() {
               <h1 className="about__info__heading">Experience:</h1>
 
               <AboutInfoItem
-                title="2020-2024"
+                title="2020-2024: "
                 items={['MSci Computer Science, University of Exeter']}
               />
 
               <ul className="experience__bullets">
-                <li>Graduated with First Class Honours, specialising in Machine Learning and Software Engineering</li>
-                <li>Developed multiple deep learning models for NLP and time series analysis</li>
+                <li>First Class Honours, specialising in Machine Learning and Software Engineering</li>
                 <li>Key modules: Artificial Intelligence, Social Networks & Text Analysis, Multi-Objective Optimisation</li>
               </ul>
               
 
               <AboutInfoItem
-                title="Sept 2024-Present"
+                title="Sept 2024-Present: "
                 items={['Associate Software Engineer (ASE), Fitch Ratings']}
               />
 

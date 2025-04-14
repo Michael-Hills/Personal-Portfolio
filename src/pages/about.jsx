@@ -291,7 +291,7 @@ export default function About() {
               
               <AboutInfoItem
                 title="BackEnd"
-                items={['Python (FastAPI, Django)', 'Java (Springboot)']}
+                items={['Python (FastAPI, Django)', 'Java (Spring Boot)']}
               />
               <AboutInfoItem
                 title="FrontEnd"

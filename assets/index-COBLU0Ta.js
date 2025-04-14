@@ -992,7 +992,7 @@ line-height: 2rem;
     }
 
     .about__info__items{
-      margin-top: 5rem;
+      margin-top: 3rem;
     }
 
     .about__info__heading {

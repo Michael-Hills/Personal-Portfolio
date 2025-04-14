@@ -573,9 +573,7 @@ line-height: 2rem;
   }
 
 
-  .services__carousel {
-    margin-top: 5rem;
-  }
+  
   .slick-slide {
     display: flex !important;
     justify-content: center;

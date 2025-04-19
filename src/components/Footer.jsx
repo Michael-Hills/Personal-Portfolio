@@ -58,8 +58,8 @@ export default function Footer() {
         <div className="footer__col1">
           <h1 className="footer__col1__title">Michael Hills</h1>
           <PText>
-          Recent graduate with a Masters Degree in Computer Science.
-          Currently working at Fitch Ratings as an Associate Software Engineer.
+            Graduated with a First Class Masters Degree in Computer Science,
+            currently working at Fitch Ratings as an Associate Software Engineer.
           </PText>
         </div>
         <div className="footer__col2">

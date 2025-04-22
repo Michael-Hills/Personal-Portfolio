@@ -304,7 +304,7 @@ export default function About() {
               />
               <AboutInfoItem
                 title="Data & Analytics: "
-                items={['SQL', 'Pandas', 'Qlik', 'PowerBI']}
+                items={['SQL', 'PL/SQL','Pandas', 'Qlik', 'PowerBI']}
               />
             </div>
             <div className="about__info__item">

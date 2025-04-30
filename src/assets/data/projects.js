@@ -16,7 +16,7 @@ const projectData = [
     short_desc: '(In Progress) A full-stack web app built with Spring Boot and React that lets users log visited ski resorts, view resort information, and upload holiday photos.',
     long_desc: 'This full-stack web application allows users to log the ski resorts they’ve visited, view resort details, and upload photos from their holidays. The backend is developed using Spring Boot, with JWT-based authentication ensuring secure user access and session handling. The frontend, built with React and styled using Tailwind CSS, offers a responsive and clean interface optimized for ease of use across devices. The platform focuses on providing a reliable, user-centered experience for organizing and visualizing personal skiing activity through structured data and photo uploads.',
     tech_stack: ['Java', 'Spring Boot', 'JavaScript','React', 'JWT'],
-    githubLink: 'https://github.com/Michael-Hills/Group-Software-Project-4th'
+    githubLink: 'https://github.com/Michael-Hills/Resort-Tracker'
   },
   {
     id:2,

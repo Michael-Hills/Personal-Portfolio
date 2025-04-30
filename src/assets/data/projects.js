@@ -3,11 +3,23 @@ import GreenCtgImg from '../images/customer-support.jpg';
 import Mythology from '../images/mythology.jpg';
 import Portfolio from '../images/hero_col.jpg';
 import Colab from '../images/colab.jpg';
+import resort_tracker from '../images/resort-tracker.jpg';
 
 
 const projectData = [
   {
     id: 1,
+    img: resort_tracker,
+    title: 'Resort Tracker',
+    short_category: ['Full-stack'],
+    long_category: ['Full-stack', 'Web Development', 'Authentication','API','SQL',],
+    short_desc: '(In Progress) A full-stack web app built with Spring Boot and React that lets users log visited ski resorts, view resort information, and upload holiday photos.',
+    long_desc: 'This full-stack web application allows users to log the ski resorts they’ve visited, view resort details, and upload photos from their holidays. The backend is developed using Spring Boot, with JWT-based authentication ensuring secure user access and session handling. The frontend, built with React and styled using Tailwind CSS, offers a responsive and clean interface optimized for ease of use across devices. The platform focuses on providing a reliable, user-centered experience for organizing and visualizing personal skiing activity through structured data and photo uploads.',
+    tech_stack: ['Java', 'Spring Boot', 'JavaScript','React', 'JWT'],
+    githubLink: 'https://github.com/Michael-Hills/Group-Software-Project-4th'
+  },
+  {
+    id:2,
     img: Skiing,
     title: 'Freestyle Skiing Fall Detection',
     short_category: ['AI/ML'],
@@ -19,7 +31,7 @@ const projectData = [
     reportLink: 'https://raw.githubusercontent.com/Michael-Hills/Freestyle-Skiing-Fall-Detection/main/Report.pdf'
   },
   {
-    id: 2,
+    id: 3,
     img: Mythology,
     title: 'Mythology Semantic Clustering',
     short_category: ['AI/ML'],
@@ -31,7 +43,7 @@ const projectData = [
     reportLink: 'https://raw.githubusercontent.com/Michael-Hills/Mythology-NLP-Clustering/main/Final_Report.pdf'
   },
   {
-    id: 3,
+    id: 4,
     img: GreenCtgImg,
     title: 'Customer Support Analysis',
     short_category: ['AI/ML'],
@@ -43,7 +55,7 @@ const projectData = [
     reportLink: 'https://raw.githubusercontent.com/Michael-Hills/Social-Networks-and-Text-Analysis/main/Report.pdf'
   },
   {
-    id: 4,
+    id: 5,
     img: Portfolio,
     title: 'Personal Portfolio',
     short_category: ['Frontend'],
@@ -54,7 +66,7 @@ const projectData = [
     githubLink: 'https://github.com/Michael-Hills/Personal-Portfolio',
   },
   {
-    id: 5,
+    id: 6,
     img: Colab,
     title: 'Colab Charity Internal System',
     short_category: ['Backend'],
@@ -63,8 +75,7 @@ const projectData = [
     long_desc: 'This group project developed a web-based platform for CoLab, a wellbeing charity in Exeter, to replace their spreadsheet-based system with a Django-powered application as a proof of concept. As the lead backend engineer, I played a key role in streamlining client profile tracking, workshop scheduling, and data analysis. The platform enhances internal operations and enables more effective, personalized support for individuals with complex needs. Built using Django, HTML, and CSS, the system offers a scalable and maintainable solution tailored to the charity\'s unique requirements.',
     tech_stack: ['Python', 'Django', 'SQL','HTML', 'CSS'],
     githubLink: 'https://github.com/Michael-Hills/Group-Software-Project-4th'
-  },
-  // Add more project items as needed
+  }
 ];
 
 export default projectData;

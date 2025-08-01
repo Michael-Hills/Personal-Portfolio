@@ -208,7 +208,7 @@ export default function HeroSection() {
           <div className="hero__info">
             <PText>
               Graduated with a First Class Masters Degree in Computer Science,
-              currently working at Fitch Ratings as an Associate Software Engineer.
+              currently working at Serendipity AI as a Backend Developer.
             </PText>
             <Button btnText="My Projects" btnLink="/projects" outline='no' />
           </div>

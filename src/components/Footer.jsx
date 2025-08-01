@@ -59,7 +59,7 @@ export default function Footer() {
           <h1 className="footer__col1__title">Michael Hills</h1>
           <PText>
             Graduated with a First Class Masters Degree in Computer Science,
-            currently working at Fitch Ratings as an Associate Software Engineer.
+            currently working at Serendipity AI as Backend Developer.
           </PText>
         </div>
         <div className="footer__col2">

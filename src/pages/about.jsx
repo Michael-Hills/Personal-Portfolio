@@ -218,7 +218,7 @@ export default function About() {
               <div className="about__info">
                 <PText>
                 Graduated from the University of Exeter, with a First-Class Masters degree in Computer Science,
-                currently working as an Associate Software Engineer at Fitch Ratings.
+                currently working as a Backend Developer at Serendipity AI.
                 <br/><br/>
 
                 My journey into coding started back in secondary school. What began as curiosity quickly grew
@@ -322,7 +322,7 @@ export default function About() {
               
 
               <AboutInfoItem
-                title="Sept 2024-Present: "
+                title="Sept 2024-July 2025: "
                 items={['Associate Software Engineer (ASE), Fitch Ratings']}
               />
 
@@ -344,6 +344,12 @@ export default function About() {
                   </ul>
                 </li>
               </ul>
+
+
+              <AboutInfoItem
+                title="July 2025-Present: "
+                items={['Backend Developer, Serendipity AI']}
+              />
               
              
             </div>

@@ -1,10 +1,10 @@
 import { useParams } from 'react-router-dom';
-import projectData from '../assets/data/projects'; 
+import projectData from '../assets/data/projects';
 import Button from './Button';
 import styled from 'styled-components';
-import PText from '../components/PText';
-import ContactBanner from '../components/ContactBanner';
-import Footer from '../components/Footer';
+import PText from './PText';
+import ContactBanner from './ContactBanner';
+import Footer from './Footer';
 import ProjectTech from './ProjectTech';
 
 
@@ -99,10 +99,6 @@ const ProjectPageStyles = styled.div`
       font-size: 2.8rem;
     }
 
-    .left{
-
-    }
-    
     .right {
       max-width: 100%;
       align-items: center;
@@ -145,13 +141,22 @@ const ProjectPageStyles = styled.div`
 `;
 
 export default function ProjectDetailPage() {
-  const { id } = useParams(); 
-  const project = projectData.find(p => p.id === Number(id)); 
+  const { id } = useParams();
+  const project = projectData.find((p) => p.id === Number(id));
 
   if (!project) {
-    return <div>Project not found!</div>;
+    return (
+      <>
+        <ProjectPageStyles>
+          <div className="container">
+            <h2 className="project__heading">Project not found</h2>
+            <Button btnText="Back to Projects" btnLink="/projects" />
+          </div>
+        </ProjectPageStyles>
+        <Footer />
+      </>
+    );
   }
-
 
   return (
     <>
@@ -183,23 +188,22 @@ export default function ProjectDetailPage() {
               {(project.githubLink || project.reportLink) && (
                 <div className="project__buttons">
                   {project.githubLink && (
-                    <Button 
-                    btnText="View on GitHub" 
-                    btnLink={project.githubLink} 
-                    outline="no"
-                    download={true}
-                  />
+                    <Button
+                      btnText="View on GitHub"
+                      btnLink={project.githubLink}
+                      outline="no"
+                    />
                   )}
                   {project.reportLink && (
-                    <Button 
-                      btnText="Download Report" 
-                      btnLink={project.reportLink} 
+                    <Button
+                      btnText="Download Report"
+                      btnLink={project.reportLink}
                       outline="no"
-                      download={true}
+                      download
                     />
                   )}
                 </div>
-              )} {}
+              )}
             </div>
           </div>
           <div className='project__img'>
@@ -215,5 +219,3 @@ export default function ProjectDetailPage() {
     </>
   );
 }
-
-  

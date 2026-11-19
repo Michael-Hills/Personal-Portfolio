@@ -30,8 +30,9 @@ const GlobalStyles = createGlobalStyle`
     height: 100%;
     object-fit: cover;
   }
-  button{
-    outline: none
+  :focus-visible {
+    outline: 2px solid var(--gray-1);
+    outline-offset: 2px;
   }
   .container {
     max-width: 1200px;

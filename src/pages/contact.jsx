@@ -1,13 +1,11 @@
-import Footer from '../components/Footer'
-import ContactSection from '../components/ContactSection'
+import Footer from '../components/Footer';
+import ContactSection from '../components/ContactSection';
 
-export default function contact() {
+export default function Contact() {
   return (
     <div>
-      <ContactSection/>
-    
-
-    <Footer/>
+      <ContactSection />
+      <Footer />
     </div>
-  )
+  );
 }

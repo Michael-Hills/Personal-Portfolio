@@ -3,9 +3,6 @@ import { MdMenu, MdClose } from "react-icons/md";
 import { useState } from 'react';
 import styled from 'styled-components';
 import ThemeToggle from './ThemeToggle';
-import { useTheme } from '../context/ThemeContext';
-
-
 
 const NavStyles = styled.nav`
   position: fixed;
@@ -22,11 +19,6 @@ const NavStyles = styled.nav`
     text-align: center;
     li {
       display: inline-block;
-      border-radius: 8px;
-      transition: 0.3s ease background-color;
-      &:hover {
-        background-color: var(--deep-dark);
-      }
     }
     a {
       display: inline-block;
@@ -34,23 +26,29 @@ const NavStyles = styled.nav`
       padding: 1rem 2rem;
       font-size: 2rem;
       color: var(--gray-1);
-      outline: none;
+      border-radius: 8px;
+      transition: 0.3s ease background-color;
+      &:hover {
+        background-color: var(--deep-dark);
+      }
     }
     .active {
       color: var(--white);
     }
+  }
+  .mobile-menu-icon,
+  .closeNavIcon button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
   }
   .mobile-menu-icon {
     position: absolute;
     right: 1rem;
     top: 1rem;
     width: 4rem;
-    cursor: pointer;
     display: none;
-    outline: none;
-    * {
-      pointer-events: none;
-    }
   }
   .navItems .closeNavIcon {
     display: none;
@@ -64,7 +62,7 @@ const NavStyles = styled.nav`
   }
 
   .theme-toggle-mobile {
-    display: none; // Hide mobile toggle by default
+    display: none; /* Hide mobile toggle by default */
   }
 
   @media only screen and (max-width: 768px) {
@@ -93,9 +91,8 @@ const NavStyles = styled.nav`
         display: block;
         width: 3rem;
         margin: 0 0 0 auto;
-        cursor: pointer;
-        * {
-          pointer-events: none;
+        button {
+          width: 100%;
         }
       }
       li {
@@ -114,83 +111,49 @@ const NavStyles = styled.nav`
 
 
 
+const NAV_LINKS = [
+  { to: '/', label: 'Home' },
+  { to: '/about', label: 'About Me' },
+  { to: '/projects', label: 'Projects' },
+  { to: '/contact', label: 'Contact' },
+];
+
 export default function NavMenu() {
-    const [showNav, setShowNav] = useState(false);
-    const { isDarkMode, toggleTheme } = useTheme();
-    return (
-      <NavStyles>
-         <div className="theme-toggle-desktop">
-          <ThemeToggle isDark={isDarkMode} toggleTheme={toggleTheme} />
-        </div>
-        <div
-          className="mobile-menu-icon"
-          onClick={() => setShowNav(!showNav)}
-          role="button"
-          onKeyDown={() => setShowNav(!showNav)}
-          tabIndex={0}
-        >
-          <MdMenu />
-        </div>
-  
-        <ul className={!showNav ? 'navItems hide-item' : 'navItems'}>
-          <div
-            className="closeNavIcon"
-            onClick={() => setShowNav(!showNav)}
-            role="button"
-            onKeyDown={() => setShowNav(!showNav)}
-            tabIndex={0}
-          >
+  const [showNav, setShowNav] = useState(false);
+  const closeNav = () => setShowNav(false);
+
+  return (
+    <NavStyles>
+      <div className="theme-toggle-desktop">
+        <ThemeToggle />
+      </div>
+      <button
+        type="button"
+        className="mobile-menu-icon"
+        onClick={() => setShowNav(true)}
+        aria-label="Open navigation menu"
+        aria-expanded={showNav}
+      >
+        <MdMenu />
+      </button>
+
+      <ul className={showNav ? 'navItems' : 'navItems hide-item'}>
+        <li className="closeNavIcon">
+          <button type="button" onClick={closeNav} aria-label="Close navigation menu">
             <MdClose />
-          </div>
-          <div className="theme-toggle-mobile">
-            <ThemeToggle isDark={isDarkMode} toggleTheme={toggleTheme} />
-          </div>
-          <li>
-            <NavLink
-              to="/"
-              onClick={() => setShowNav(!showNav)}
-              role="button"
-              onKeyDown={() => setShowNav(!showNav)}
-              tabIndex={0}
-            >
-              Home
+          </button>
+        </li>
+        <li className="theme-toggle-mobile">
+          <ThemeToggle />
+        </li>
+        {NAV_LINKS.map(({ to, label }) => (
+          <li key={to}>
+            <NavLink to={to} end={to === '/'} onClick={closeNav}>
+              {label}
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              to="/about"
-              onClick={() => setShowNav(!showNav)}
-              role="button"
-              onKeyDown={() => setShowNav(!showNav)}
-              tabIndex={0}
-            >
-              About Me
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/projects"
-              onClick={() => setShowNav(!showNav)}
-              role="button"
-              onKeyDown={() => setShowNav(!showNav)}
-              tabIndex={0}
-            >
-              Projects
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/contact"
-              onClick={() => setShowNav(!showNav)}
-              role="button"
-              onKeyDown={() => setShowNav(!showNav)}
-              tabIndex={0}
-            >
-              Contact
-            </NavLink>
-          </li>
-         
-        </ul>
-      </NavStyles>
-    );
-  }
+        ))}
+      </ul>
+    </NavStyles>
+  );
+}

@@ -1,4 +1,4 @@
-import { useEffect,useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import emailjs from '@emailjs/browser';
 
@@ -71,6 +71,11 @@ const FormStyle = styled.form`
     border-radius: 8px;
     cursor: pointer;
     margin-top: 2rem;
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: wait;
+    }
   }
 `;
 
@@ -79,6 +84,7 @@ export default function ContactForm() {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [status, setStatus] = useState('');
+  const [sending, setSending] = useState(false);
 
   useEffect(() => {
     if (status) {
@@ -97,6 +103,7 @@ export default function ContactForm() {
       return;
     }
 
+    setSending(true);
     try {
       const result = await emailjs.send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
@@ -121,6 +128,8 @@ export default function ContactForm() {
     } catch (error) {
       console.error('Failed to send email:', error);
       setStatus('error');
+    } finally {
+      setSending(false);
     }
   };
     
@@ -155,7 +164,6 @@ export default function ContactForm() {
           <label htmlFor="message">
             Your message
             <textarea
-              type="text"
               id="message"
               name="message"
               value={message}
@@ -163,10 +171,12 @@ export default function ContactForm() {
             />
           </label>
         </div>
-        <button type="submit">Send</button>
+        <button type="submit" disabled={sending}>
+          {sending ? 'Sending...' : 'Send'}
+        </button>
       </FormStyle>
       {status && (
-        <PopupMessage className={status === 'validation' ? 'error' : status}>
+        <PopupMessage role="status" className={status === 'validation' ? 'error' : status}>
         {status === 'success' 
           ? 'Message sent successfully!' 
           : status === 'validation'

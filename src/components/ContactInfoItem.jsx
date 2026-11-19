@@ -2,6 +2,7 @@ import { MdPlace } from 'react-icons/md';
 import styled from 'styled-components';
 import PText from './PText';
 import PropTypes from 'prop-types';
+import SmartLink from './SmartLink';
 
 const ItemStyles = styled.div`
   padding: 2rem;
@@ -48,12 +49,12 @@ export default function ContactInfoItem({
 }) {
   return (
     <ItemStyles>
-      <a href={link} target="_blank" rel="noreferrer">
+      <SmartLink href={link}>
         <div className="icon">{icon}</div>
         <div className="info">
           <PText>{text}</PText>
         </div>
-      </a>
+      </SmartLink>
     </ItemStyles>
   );
 }

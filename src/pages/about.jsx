@@ -6,7 +6,10 @@ import AboutInfoItem from '../components/AboutInfoItem';
 import ContactBanner from '../components/ContactBanner';
 import Footer from '../components/Footer';
 import SectionTitle from '../components/SectionTitle';
-import { FaLinkedin, FaGithub } from 'react-icons/fa';
+import SocialLinks from '../components/SocialLinks';
+
+// Served from public/ alongside the site.
+const CV_URL = `${import.meta.env.BASE_URL}${encodeURIComponent("MJ Hills - CV Mar'25 (1-pager) v1.0.pdf")}`;
 
 const AboutPageStyles = styled.div`
   padding: 10rem 0 10rem 0;
@@ -239,31 +242,12 @@ export default function About() {
                 </PText>
               </div>
               <div className='about__info__buttons'>
-                <Button btnText="Download CV" btnLink="https://raw.githubusercontent.com/Michael-Hills/Personal-Portfolio/main/public/MJ Hills - CV Mar'25 (1-pager) v1.0.pdf"  download={true}/>
-                <ul>
-                  <li>
-                    <a
-                      href="https://www.linkedin.com/in/michaeljhills1/"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <FaLinkedin/>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://github.com/Michael-Hills"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <FaGithub/>
-                    </a>
-                  </li>
-                </ul>
+                <Button btnText="Download CV" btnLink={CV_URL} download />
+                <SocialLinks />
               </div>
             </div>
             <div className="right">
-              <img src={AboutImg} alt="me" />
+              <img src={AboutImg} alt="Michael Hills" />
             </div>
           </div>
           <div className="about__info__items">

@@ -1,14 +1,31 @@
-import { createContext, useState, useContext } from 'react';
+import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import { ThemeContext } from './useTheme';
 
-const ThemeContext = createContext();
+const STORAGE_KEY = 'theme';
+
+function getInitialDarkMode() {
+  try {
+    const stored = window.localStorage.getItem(STORAGE_KEY);
+    if (stored) return stored === 'dark';
+  } catch {
+    // Storage can be unavailable (private mode, blocked cookies); fall back to the default.
+  }
+  return true;
+}
 
 export const ThemeProvider = ({ children }) => {
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(getInitialDarkMode);
 
-  const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
-  };
+  useEffect(() => {
+    try {
+      window.localStorage.setItem(STORAGE_KEY, isDarkMode ? 'dark' : 'light');
+    } catch {
+      // Ignore: persistence is a convenience only.
+    }
+  }, [isDarkMode]);
+
+  const toggleTheme = () => setIsDarkMode((prev) => !prev);
 
   return (
     <ThemeContext.Provider value={{ isDarkMode, toggleTheme }}>
@@ -20,5 +37,3 @@ export const ThemeProvider = ({ children }) => {
 ThemeProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
-
-export const useTheme = () => useContext(ThemeContext);

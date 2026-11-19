@@ -4,10 +4,8 @@ import ProjectImg from '../assets/images/customer-support.jpg';
 import PropTypes from 'prop-types';
 
 const ProjectItemStyles = styled.div`
-    width: ${(props) => (props.width ? props.width : '90%')};
-    margin: 0 auto;
-
-
+  width: ${(props) => props.$width};
+  margin: 0 auto;
 
   .projectItem__img {
     width: 100%;
@@ -76,8 +74,7 @@ export default function ProjectItem({
   width = '90%',
 }) {
   return (
-    <ProjectItemStyles width={width}>
-      
+    <ProjectItemStyles $width={width}>
       <Link to={`/project/${id}`} className="projectItem__img">
         <img src={img} alt={title} />
       </Link>
@@ -87,9 +84,9 @@ export default function ProjectItem({
             <h3 className="projectItem__title">{title}</h3>
           </Link>
           <div className="projectItem__categories">
-            {category.map((category, index) => (
-              <span key={index} className="projectItem__category">
-                {category}
+            {category.map((cat) => (
+              <span key={cat} className="projectItem__category">
+                {cat}
               </span>
             ))}
           </div>

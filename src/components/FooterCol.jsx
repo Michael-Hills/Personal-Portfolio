@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import SmartLink from './SmartLink';
 
 const ColStyle = styled.div`
   .heading {
@@ -19,12 +19,10 @@ export default function FooterCol({
   heading = 'Col Heading',
   links = [
     {
-      type: 'Link',
       title: 'Home',
       path: '/home',
     },
     {
-      type: 'Link',
       title: 'About',
       path: '/about',
     },
@@ -34,15 +32,9 @@ export default function FooterCol({
     <ColStyle>
       <h2 className="heading">{heading}</h2>
       <ul>
-        {links.map((item, index) => (
-          <li key={index}>
-            {item.type === 'Link' ? (
-              <Link to={item.path}>{item.title}</Link>
-            ) : (
-              <a href={item.path} target="_blank" rel="noreferrer">
-                {item.title}
-              </a>
-            )}
+        {links.map((item) => (
+          <li key={item.path}>
+            <SmartLink href={item.path}>{item.title}</SmartLink>
           </li>
         ))}
       </ul>
@@ -54,7 +46,6 @@ FooterCol.propTypes = {
     heading: PropTypes.string.isRequired,
     links: PropTypes.arrayOf(
       PropTypes.shape({
-        type: PropTypes.oneOf(['Link', 'External']).isRequired, // Restrict 'type' to specific values
         title: PropTypes.string.isRequired,
         path: PropTypes.string.isRequired,
       })

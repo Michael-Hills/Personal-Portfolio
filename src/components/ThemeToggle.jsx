@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { useTheme } from '../context/useTheme';
 
 const ToggleButton = styled.button`
   background: ${({ theme }) => theme.gray2};
@@ -39,12 +40,19 @@ const ToggleButton = styled.button`
   }
 `;
 
-export default function ThemeToggle({ isDark, toggleTheme }) {
+export default function ThemeToggle() {
+  const { isDarkMode: isDark, toggleTheme } = useTheme();
   return (
-    <ToggleButton onClick={toggleTheme} $isDark={isDark}>
-      <div className="toggle-icons">
-        <span role="img" aria-label="sun">☀️</span>
-        <span role="img" aria-label="moon">🌙</span>
+    <ToggleButton
+      type="button"
+      onClick={toggleTheme}
+      $isDark={isDark}
+      aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+      aria-pressed={isDark}
+    >
+      <div className="toggle-icons" aria-hidden="true">
+        <span>☀️</span>
+        <span>🌙</span>
       </div>
       <div className="toggle-circle" />
     </ToggleButton>

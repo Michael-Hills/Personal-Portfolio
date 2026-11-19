@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import FooterCol from './FooterCol';
 import PText from './PText';
+import socials from '../assets/data/socials';
 
 const FooterStyle = styled.div`
   background-color: var(--deep-dark);
@@ -67,23 +68,18 @@ export default function Footer() {
             heading="Important Links"
             links={[
               {
-                type: 'Link',
                 title: 'Home',
-                path: '/'
-                
+                path: '/',
               },
               {
-                type: 'Link',
                 title: 'About Me',
                 path: '/about',
               },
               {
-                type: 'Link',
                 title: 'Projects',
                 path: '/projects',
               },
               {
-                type: 'Link',
                 title: 'Contact',
                 path: '/contact',
               },
@@ -95,17 +91,14 @@ export default function Footer() {
             heading="Contact Info"
             links={[
               {
-                type: 'External',
                 title: '+447760119930',
                 path: 'tel:+447760119930',
               },
               {
-                type: 'External',
                 title: 'mjhills1@btinternet.com',
                 path: 'mailto:mjhills1@btinternet.com',
               },
               {
-                type: 'External',
                 title: 'London, England',
                 path: 'https://www.google.com/maps/place/London/@51.5286416,-0.1015987,11z/data=!3m1!4b1!4m6!3m5!1s0x47d8a00baf21de75:0x52963a5addd52a99!8m2!3d51.5072178!4d-0.1275862!16zL20vMDRqcGw?entry=ttu&g_ep=EgoyMDI1MDQwMi4xIKXMDSoASAFQAw%3D%3D'
               },
@@ -115,19 +108,7 @@ export default function Footer() {
         <div className="footer__col4">
           <FooterCol
             heading="Socials"
-            links={[
-              {
-                type: 'External',
-                title: 'LinkedIn',
-                path: 'https://www.linkedin.com/in/michaeljhills1/',
-              },
-              {
-                type: 'External',
-                title: 'GitHub',
-                path: 'https://github.com/Michael-Hills',
-              },
-             
-            ]}
+            links={socials.map(({ label, url }) => ({ title: label, path: url }))}
           />
         </div>
       </div>

@@ -4,7 +4,7 @@ import Button from './Button';
 import SocialMediaArrow from '../assets/images/social-media-arrow.svg';
 import ScrollDownArrow from '../assets/images/scroll-down-arrow.svg';
 import PText from './PText';
-import { FaLinkedin, FaGithub } from 'react-icons/fa';
+import SocialLinks from './SocialLinks';
 
 const HeroStyles = styled.div`
   .hero {
@@ -53,15 +53,6 @@ const HeroStyles = styled.div`
       color: white !important; 
       
     }
-
-    /*
-    .button{
-      background-color: var(--gray-2);
-      color: white;
-      border: 2px solid var(--gray-2);
-    }
-      */
-    
   }
   .hero__social,
   .hero__scrollDown {
@@ -203,7 +194,7 @@ export default function HeroSection() {
             <span className="hero__name">Michael Hills</span>
           </h1>
           <div className="hero__img">
-            <img src={HeroImg} alt="" />
+            <img src={HeroImg} alt="Michael Hills" />
           </div>
           <div className="hero__info">
             <PText>
@@ -215,34 +206,15 @@ export default function HeroSection() {
           <div className="hero__social">
             <div className="hero__social__indicator">
               <p>Follow</p>
-              <img src={SocialMediaArrow} alt="icon" />
+              <img src={SocialMediaArrow} alt="" aria-hidden="true" />
             </div>
             <div className="hero__social__text">
-              <ul>
-                <li>
-                  <a
-                    href="https://www.linkedin.com/in/michaeljhills1/"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <FaLinkedin/>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://github.com/Michael-Hills"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <FaGithub/>
-                  </a>
-                </li>
-              </ul>
+              <SocialLinks />
             </div>
           </div>
           <div className="hero__scrollDown">
             <p>Scroll</p>
-            <img src={ScrollDownArrow} alt="ScrollDown Arrow" />
+            <img src={ScrollDownArrow} alt="" aria-hidden="true" />
           </div>
         </div>
       </div>

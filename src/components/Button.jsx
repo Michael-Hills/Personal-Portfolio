@@ -1,7 +1,6 @@
-import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-
+import SmartLink from './SmartLink';
 
 const ButtonStyle = styled.div`
   margin-top: 2rem;
@@ -23,32 +22,19 @@ const ButtonStyle = styled.div`
   }
 `;
 
-
-export default function Button({ btnLink = 'Button', btnText = 'Button', outline = 'no', download= false}) {
-    return (
-      <ButtonStyle $outline={outline}>{download ? (
-        <a 
-          className="button" 
-          href={btnLink} 
-          download
-          target="_blank"
-          rel="noreferrer"
-        >
-          {btnText}
-        </a>
-      ) : (
-        <Link className="button" to={btnLink}>
-          {btnText}
-        </Link>
-      )}
-      </ButtonStyle>
-    );
-  }
-
+export default function Button({ btnLink, btnText, outline = 'no', download = false }) {
+  return (
+    <ButtonStyle $outline={outline}>
+      <SmartLink className="button" href={btnLink} download={download || undefined}>
+        {btnText}
+      </SmartLink>
+    </ButtonStyle>
+  );
+}
 
 Button.propTypes = {
-    btnLink: PropTypes.string.isRequired, 
-    btnText: PropTypes.string.isRequired,
-    outline: PropTypes.string,
-    download: PropTypes.bool,
-}
+  btnLink: PropTypes.string.isRequired,
+  btnText: PropTypes.string.isRequired,
+  outline: PropTypes.oneOf(['yes', 'no']),
+  download: PropTypes.bool,
+};

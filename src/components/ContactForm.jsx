@@ -3,74 +3,88 @@ import styled from 'styled-components';
 import emailjs from '@emailjs/browser';
 
 
-const PopupMessage = styled.div`
+const Toast = styled.div`
   position: fixed;
-  top: 20px;
-  right: 20px;
-  padding: 1.5rem 2.5rem;
-  border-radius: 8px;
-  font-size: 1.6rem;
-  z-index: 1000;
-  animation: slideIn 0.5s ease-out;
-  
+  right: var(--gutter);
+  bottom: var(--gutter);
+  z-index: 100;
+  max-width: min(360px, calc(100vw - 2 * var(--gutter)));
+  padding: 14px 18px 14px 20px;
+  border-left: 3px solid var(--accent);
+  background: var(--ink);
+  color: var(--bg);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  animation: toast-in 0.25s ease-out;
+
   &.success {
-    background-color: #4caf50;
-    color: white;
-  }
-  
-  &.error {
-    background-color: #f44336;
-    color: white;
+    border-left-color: #3fb27f;
   }
 
-  @keyframes slideIn {
+  @keyframes toast-in {
     from {
-      transform: translateX(100%);
+      transform: translateY(8px);
       opacity: 0;
-    }
-    to {
-      transform: translateX(0);
-      opacity: 1;
     }
   }
 `;
 
 const FormStyle = styled.form`
-  width: 100%;
-  .form-group {
-    width: 100%;
-    margin-bottom: 0rem;
-  }
+  display: grid;
+  gap: 28px;
+
   label {
-    font-size: 1.8rem;
+    display: grid;
+    gap: 8px;
   }
+
   input,
   textarea {
     width: 100%;
-    font-size: 2rem;
-    padding: 1.2rem;
-    color: var(--gray-1);
-    background-color: var(--deep-dark);
-    outline: none;
-    border: none;
-    border-radius: 8px;
-    margin-top: 1rem;
+    padding: 10px 0;
+    border: 0;
+    border-bottom: 1px solid var(--rule-strong);
+    border-radius: 0;
+    background: transparent;
+    font-size: 1.125rem;
+    transition: border-color 0.15s ease;
+
+    &:hover {
+      border-bottom-color: var(--ink-muted);
+    }
+
+    &:focus {
+      outline: none;
+      border-bottom-color: var(--accent);
+    }
   }
+
   textarea {
-    min-height: 150px;
+    min-height: 160px;
     resize: vertical;
   }
+
   button[type='submit'] {
-    background-color: var(--gray-1);
-    color: var(--black);
-    font-size: 2rem;
-    display: inline-block;
-    outline: none;
-    border: none;
-    padding: 1rem 4rem;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-top: 2rem;
+    justify-self: start;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 44px;
+    padding: 0 18px;
+    border: 1px solid var(--ink);
+    background: var(--ink);
+    color: var(--bg);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+
+    &:hover:not(:disabled) {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--on-accent);
+    }
 
     &:disabled {
       opacity: 0.6;
@@ -132,57 +146,37 @@ export default function ContactForm() {
       setSending(false);
     }
   };
-    
+
+  const toastText = {
+    success: 'Message sent. Thanks, I’ll get back to you soon.',
+    validation: 'Please fill in all fields before sending.',
+    error: 'Message failed to send. Please try again or email me directly.',
+  };
+
   return (
     <>
       <FormStyle onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="name">
-            Your Name
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-          </label>
-        </div>
-        <div className="form-group">
-          <label htmlFor="email">
-            Your Email
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </label>
-        </div>
-        <div className="form-group">
-          <label htmlFor="message">
-            Your message
-            <textarea
-              id="message"
-              name="message"
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-            />
-          </label>
-        </div>
+        <label htmlFor="name">
+          <span className="label">Name</span>
+          <input type="text" id="name" name="name" value={name} onChange={(e) => setName(e.target.value)} />
+        </label>
+        <label htmlFor="email">
+          <span className="label">Email</span>
+          <input type="email" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+        </label>
+        <label htmlFor="message">
+          <span className="label">Message</span>
+          <textarea id="message" name="message" value={message} onChange={(e) => setMessage(e.target.value)} />
+        </label>
         <button type="submit" disabled={sending}>
-          {sending ? 'Sending...' : 'Send'}
+          {sending ? 'Sending…' : 'Send message'}
+          <span aria-hidden="true">→</span>
         </button>
       </FormStyle>
       {status && (
-        <PopupMessage role="status" className={status === 'validation' ? 'error' : status}>
-        {status === 'success' 
-          ? 'Message sent successfully!' 
-          : status === 'validation'
-            ? 'Please fill in all fields before sending.'
-            : 'Failed to send message. Please try again.'}
-      </PopupMessage>
+        <Toast role="status" className={status}>
+          {toastText[status]}
+        </Toast>
       )}
     </>
   );

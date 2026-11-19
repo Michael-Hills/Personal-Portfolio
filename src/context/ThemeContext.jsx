@@ -4,24 +4,19 @@ import { ThemeContext } from './useTheme';
 
 const STORAGE_KEY = 'theme';
 
-function getInitialDarkMode() {
-  try {
-    const stored = window.localStorage.getItem(STORAGE_KEY);
-    if (stored) return stored === 'dark';
-  } catch {
-    // Storage can be unavailable (private mode, blocked cookies); fall back to the default.
-  }
-  return true;
-}
+// index.html sets data-theme from storage before first paint; start from whatever it chose.
+const getInitialDarkMode = () => document.documentElement.dataset.theme !== 'light';
 
 export const ThemeProvider = ({ children }) => {
   const [isDarkMode, setIsDarkMode] = useState(getInitialDarkMode);
 
   useEffect(() => {
+    const theme = isDarkMode ? 'dark' : 'light';
+    document.documentElement.dataset.theme = theme;
     try {
-      window.localStorage.setItem(STORAGE_KEY, isDarkMode ? 'dark' : 'light');
+      window.localStorage.setItem(STORAGE_KEY, theme);
     } catch {
-      // Ignore: persistence is a convenience only.
+      // Storage can be unavailable (private mode, blocked cookies); persistence is optional.
     }
   }, [isDarkMode]);
 

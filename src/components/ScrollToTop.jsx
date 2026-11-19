@@ -5,10 +5,7 @@ export default function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    const scrollContainer = document.querySelector('.smooth-scroll-container');
-    if (scrollContainer) {
-      scrollContainer.scrollTop = 0;
-    }
+    window.scrollTo({ top: 0, behavior: 'instant' });
   }, [pathname]);
 
   return null;

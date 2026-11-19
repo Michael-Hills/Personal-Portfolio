@@ -1,14 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark" id="top">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#0f0f0d" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Michael Hills – Software Engineer specialising in backend development, machine learning and full-stack web apps."
+      content="Michael Hills – backend engineer building and running systems in production, from real-time streaming pipelines through to NLP analysis."
     />
-    <title>Michael Hills</title>
+    <title>Michael Hills | Backend Engineer</title>
+    <script>
+      // Apply the saved theme before first paint to avoid a flash of the wrong theme.
+      try {
+        var saved = localStorage.getItem("theme");
+        if (saved === "light" || saved === "dark") document.documentElement.dataset.theme = saved;
+      } catch (e) {}
+    </script>
     <script type="text/javascript">
       // Single Page Apps for GitHub Pages
       // MIT License

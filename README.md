@@ -24,10 +24,12 @@ VITE_EMAILJS_PUBLIC_KEY=...
 
 ## Project structure
 
-- `src/pages/` – top-level routes (Home, About, Projects, Contact)
-- `src/components/` – shared UI components
-- `src/assets/data/projects.js` – project list shown on the site; add new projects here
-- `src/styles/` – global styles, fonts and light/dark themes
+- `src/pages/` – top-level routes (Home, About, Projects, Project detail, Contact)
+- `src/components/` – shared UI components (header, footer, project index, buttons…)
+- `src/assets/data/` – site content: `projects.js` (add new projects here), `profile.js` (skills, experience, education) and `contact.js` (contact details, socials, CV link)
+- `src/styles/GlobalStyle.js` – design tokens (colours for both themes, fonts, spacing) and base styles
+
+Fonts are Archivo (variable, including the width axis) and IBM Plex Mono, self-hosted via Fontsource.
 - `public/404.html` + the script in `index.html` – SPA routing workaround for GitHub Pages
 
 The site is served from `/Personal-Portfolio/`; this is set by `base` in `vite.config.js` and the router reads it from `import.meta.env.BASE_URL`.

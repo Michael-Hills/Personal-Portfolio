@@ -1,347 +1,302 @@
 import styled from 'styled-components';
-import PText from '../components/PText';
+import PageHeader from '../components/PageHeader';
+import SectionHeader from '../components/SectionHeader';
+import EntryList from '../components/EntryList';
 import Button from '../components/Button';
-import AboutImg from '../assets/images/about-page-img.png';
-import AboutInfoItem from '../components/AboutInfoItem';
-import ContactBanner from '../components/ContactBanner';
-import Footer from '../components/Footer';
-import SectionTitle from '../components/SectionTitle';
-import SocialLinks from '../components/SocialLinks';
+import PortraitImg from '../assets/images/portrait-mountain.jpg';
+import BigAirImg from '../assets/images/ski-big-air.jpg';
+import BackflipImg from '../assets/images/ski-backflip.jpg';
+import { capabilities, education, experience, interests, leadership, summary } from '../assets/data/profile';
+import { CV_URL, socials } from '../assets/data/contact';
 
-// Served from public/ alongside the site.
-const CV_URL = `${import.meta.env.BASE_URL}${encodeURIComponent("MJ Hills - CV Mar'25 (1-pager) v1.0.pdf")}`;
+// Links in the first quarter, bio in the main text column, portrait in the last quarter.
+const Intro = styled.div`
+  border-top: 1px solid var(--rule);
 
-const AboutPageStyles = styled.div`
-  padding: 10rem 0 10rem 0;
+  > * {
+    padding-block: 32px 48px;
+  }
 
-  .top-section {
+  .actions {
+    --span: 3;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 7rem;
-  }
-  .left {
-    flex: 3;
-  }
-  .right {
-    flex: 2;
-  }
-  .about__subheading {
-    font-size: 2.2rem;
-    margin-bottom: 2rem;
-    span {
-      background-color: var(--deep-dark);
-      padding: 0.5rem;
-      border-radius: 8px;
-    }
-  }
-  .about__heading {
-    font-size: 3.6rem;
-    margin-bottom: 3rem;
-  }
-  .about__info {
-    margin-bottom: 4rem;
-    .para {
-      max-width: 100%;
-    }
-  }
-  .right {
-    img {
-      border: 2px solid var(--gray-1);
-      max-width: 80%;
-      height: auto;
-      display: none;
-    }
-  }
-  .about__info__items {
-    margin-top: 15rem;
-  }
-  .about__info__item {
-    margin-bottom: 10rem;
-
-    .items{
-      margin-top: 1rem;
-    }
-  }
-  .about__info__heading {
-    font-size: 3.6rem;
-    text-transform: uppercase;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
   }
 
-  .about__info__buttons {
-  display: flex;
-  align-items: flex-start; 
-  gap: 2rem;
-  
-    ul {
-      display: flex;
-      gap: 1rem;
-      margin-top: 2rem;
-      height: 48px;
-      
-      li {
-        display: flex;
-        align-items: center; 
-        height: 100%;
-        
-        a {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          color: var(--gray-1);
-          min-height: 48px;
-          min-width: 48px;
-          font-size: 2.2rem;
-          transition: 0.3s ease background-color;
-        }
+  .copy {
+    --span: 6;
+  }
+
+  .copy p {
+    max-width: 62ch;
+    color: var(--ink-muted);
+  }
+
+  .copy p + p {
+    margin-top: 1.1em;
+  }
+
+  .copy p:first-child {
+    max-width: 52ch;
+    color: var(--ink);
+    font-size: clamp(1.125rem, 1.6vw, 1.3125rem);
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+  }
+
+  figure {
+    --span: 3;
+  }
+
+  figure img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    object-position: 20% 62%;
+  }
+
+  figcaption {
+    margin-top: 10px;
+  }
+
+  @media (max-width: 1023px) {
+    .copy {
+      --span: 9;
+      padding-right: 0;
+    }
+
+    figure {
+      --start: 4;
+      --span: 6;
+      padding-top: 0;
+    }
+  }
+
+  /* Phones: bio first, then the photo beside the buttons. */
+  @media (max-width: 639px) {
+    grid-template-columns: 5fr 7fr;
+
+    > * {
+      padding-block: 24px;
+    }
+
+    .copy {
+      grid-column: 1 / -1;
+      order: -1;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    figure {
+      grid-column: 1;
+      order: 0;
+      padding-top: 24px;
+    }
+
+    .actions {
+      grid-column: 2;
+      order: 1;
+      align-items: stretch;
+      padding-left: var(--cell);
+      border-left: 1px solid var(--rule);
+
+      > * {
+        justify-content: space-between;
       }
     }
   }
+`;
 
-  .experience__bullets{
-    margin: 2rem 0 3rem 2rem;
-    list-style-type: disc;
-    color: var(--gray-2);
-    font-size: 1.6rem;
-    line-height: 1.3;
-    padding-left: 4rem;
-    
-    li {
-      margin-bottom: 0.5rem;
-      display: list-item;
-      list-style: disc outside;
-      color: var(--gray-1);
+const Section = styled.section.attrs({ className: 'section' })`
+  --section-gap: 64px;
 
+  @media (max-width: 767px) {
+    --section-gap: 48px;
+  }
+`;
 
-      ul {
-        margin-top: 0.5rem;
-        margin-bottom: 2rem;
-        padding-left: 2rem;
-        
-        li {
-          list-style-type: circle;
-          font-size: 1.5rem;
-        }
-      }
-    }
-
-
+// Landscape photo across three quarters, portrait in the last quarter; the portrait
+// stretches to the landscape's height.
+const Gallery = styled.div`
+  > * {
+    padding-top: 32px;
   }
 
-  .rotation__intro {
-  margin: 2rem 0 1rem 2rem;
-  color: var(--gray-1);
-  font-size: 1.6rem;
-  line-height: 1.3;
-  padding-left: 1.5rem;
-}
-
-  
-  
-
-  @media only screen and (max-width: 768px) {
-    padding: 10rem 0;
-    .top-section {
-      flex-direction: column;
-      gap: 5rem;
-    }
-   
-    .about__subheading {
-      font-size: 1.8rem;
-    }
-    .about__heading {
-      font-size: 2.8rem;
-    }
-
-    .about__info__items{
-      margin-top: 3rem;
-    }
-
-    .about__info__heading {
-      font-size: 3rem;
-    }
-
-    .right {
-      display: flex;
-      justify-content: center;
-      width: 100%;
-      
-      img {
-        max-width: 60%;
-        width: 350px;
-        height: auto;
-      }
-    }
-
-    .about__info__buttons {
-      flex-direction: column;
-      gap: 1rem;
-      align-items: center;
-      
-      ul {
-        justify-content: center;
-      }
-    }
-
-    .experience__bullets {
-    padding-left: 2rem;
-    font-size: 1.4rem;
-
-    li {
-      font-size: 1.4rem;  
-      
-      ul {
-        li {
-          font-size: 1.3rem;  
-        }
-      }
-    }
+  figure {
+    display: flex;
+    flex-direction: column;
   }
 
-    .rotation__intro {
-    font-size: 1.4rem;
-    padding-left: 0rem;
-    }    
+  .wide {
+    --span: 9;
+  }
+
+  .tall {
+    --span: 3;
+  }
+
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .wide img {
+    aspect-ratio: 3 / 2;
+  }
+
+  .tall img {
+    flex: 1 1 0;
+    min-height: 0;
+  }
+
+  figcaption {
+    margin-top: 10px;
+  }
+
+  /* Phones: the two photos side by side, cropped to the same shape. */
+  @media (max-width: 639px) {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+
+    .wide,
+    .tall {
+      grid-column: auto;
+    }
+
+    .wide img,
+    .tall img {
+      flex: none;
+      aspect-ratio: 4 / 5;
+    }
+
+    .wide img {
+      object-position: 30% 50%;
+    }
+  }
+`;
+
+const Skills = styled.dl`
+  > div {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    border-bottom: 1px solid var(--rule);
+  }
+
+  dt {
+    grid-column: span 3;
+    padding: 22px var(--cell) 22px 0;
+  }
+
+  dd {
+    grid-column: span 9;
+    padding: 18px 0 18px var(--cell);
+    border-left: 1px solid var(--rule);
+    font-size: 1.125rem;
+  }
+
+  @media (max-width: 639px) {
+    > div {
+      grid-template-columns: 1fr;
+      padding-block: 18px;
+    }
+
+    dt,
+    dd {
+      grid-column: 1 / -1;
+      padding: 0;
+      border-left: 0;
+    }
+
+    dd {
+      margin-top: 6px;
+    }
   }
 `;
 
 export default function About() {
   return (
     <>
-      <AboutPageStyles>
-        <div className="container">
-          <SectionTitle heading="About Me" subheading=''/>
-          <div className="top-section">
-            <div className="left">
-              <p className="about__subheading">
-                Hi, I am <span>Michael Hills</span>
-              </p>
-              <h2 className="about__heading">Software Engineer</h2>
-              <div className="about__info">
-                <PText>
-                Graduated from the University of Exeter, with a First-Class Masters degree in Computer Science,
-                currently working as a Backend Developer at Serendipity AI.
-                <br/><br/>
+      <PageHeader index="01" kicker="About" title="About">
+        {summary} First-Class MSci in Computer Science.
+      </PageHeader>
 
-                My journey into coding started back in secondary school. What began as curiosity quickly grew
-                into a passion, especially for building things that solve real-world problems — whether that’s
-                automating repetitive tasks, improving safety in sports, or uncovering useful insights through data.
-
-                <br/><br/>
-
-                Over time, I’ve developed a strong interest in both machine learning and full-stack web development.
-                I love creating intelligent applications — from training models on real-world data to crafting responsive
-                frontends and robust backends.
-
-                <br/><br/>
-
-                I’m always exploring new frameworks, tools, and ideas. My goal is simple: to build meaningful tech that
-                makes life a little smarter, safer, or just easier.
-
-                </PText>
-              </div>
-              <div className='about__info__buttons'>
-                <Button btnText="Download CV" btnLink={CV_URL} download />
-                <SocialLinks />
-              </div>
-            </div>
-            <div className="right">
-              <img src={AboutImg} alt="Michael Hills" />
-            </div>
-          </div>
-          <div className="about__info__items">
-            <div className="about__info__item">
-              <h1 className="about__info__heading">Education:</h1>
-
-              <AboutInfoItem
-                items={['Reading Blue Coat School']}
-              />
-
-              <p className="rotation__intro">
-                <strong>- A* Maths, A* Further Maths, A* Physics, A* Geology</strong>
-              </p>
-              <AboutInfoItem
-                items={['University of Exeter']}
-              />
-
-              <p className="rotation__intro">
-                <strong>- First Class Masters in Computer Science</strong>
-              </p>
-             
-            </div>
-            <div className="about__info__item">
-              <h1 className="about__info__heading">My Skills:</h1>
-
-              
-              <AboutInfoItem
-                title="BackEnd: "
-                items={['Python (FastAPI, Django)', 'Java (Spring Boot)']}
-              />
-              <AboutInfoItem
-                title="FrontEnd: "
-                items={['HTML', 'CSS', 'JavaScript', 'REACT']}
-              />
-              <AboutInfoItem
-                title="Machine Learning: "
-                items={['PyTorch', 'BERT', 'Hugging Face','Scikit-learn']}
-              />
-              <AboutInfoItem
-                title="Data & Analytics: "
-                items={['SQL', 'PL/SQL','Pandas', 'Qlik', 'PowerBI']}
-              />
-            </div>
-            <div className="about__info__item">
-              <h1 className="about__info__heading">Experience:</h1>
-
-              <AboutInfoItem
-                title="2020-2024: "
-                items={['MSci Computer Science, University of Exeter']}
-              />
-
-              <ul className="experience__bullets">
-                <li>First Class Honours, specialising in Machine Learning and Software Engineering</li>
-                <li>Key modules: Artificial Intelligence, Social Networks & Text Analysis, Multi-Objective Optimisation</li>
-              </ul>
-              
-
-              <AboutInfoItem
-                title="Sept 2024-July 2025: "
-                items={['Associate Software Engineer (ASE), Fitch Ratings']}
-              />
-
-              <p className="rotation__intro">
-                <strong>3 Month Rotations:</strong>
-              </p>
-
-              <ul className="experience__bullets">
-                <li>BMI-Data Transformation:
-                  <ul>
-                    <li>Developed a full-stack web application using FastAPI backend, PostgreSQL database, and React frontend</li>
-                    <li>Contributed to backend API design, frontend development, and data transformation workflows in an agile team</li>
-                  </ul>
-                </li>
-                <li>CDO-Enterprise Data Analytics:
-                  <ul>
-                    <li>Built a web app to track usage, costs, and ROI for Fitch products, using Qlik ETL scripts, AngularJS, and Qlik APIs</li>
-                    <li>Created a user behaviour based product recommendation system utilising BERTopic text clustering and market basket analysis</li>
-                  </ul>
-                </li>
-              </ul>
-
-
-              <AboutInfoItem
-                title="July 2025-Present: "
-                items={['Backend Developer, Serendipity AI']}
-              />
-              
-             
-            </div>
-          </div>
+      <Intro className="container grid-12">
+        <div className="actions pad-r">
+          <Button to={CV_URL} icon="↓" download>
+            Download CV
+          </Button>
+          {socials.map(({ label, url }) => (
+            <Button key={label} to={url} variant="secondary" icon="↗">
+              {label}
+            </Button>
+          ))}
         </div>
-        <ContactBanner />
-      </AboutPageStyles>
-      <Footer/>
+        <div className="copy ruled pad-r">
+          <p>
+            Sole engineer on a live transcription and analysis platform used by the World Economic Forum, taken from
+            prototype to launch, spanning real-time streaming pipelines through to NLP analysis.
+          </p>
+          <p>
+            My journey into coding started back in secondary school. What began as curiosity quickly grew into a
+            passion, especially for building things that solve real-world problems, whether that’s automating repetitive
+            tasks, improving safety in sports, or uncovering useful insights through data.
+          </p>
+        </div>
+        <figure className="photo ruled">
+          <img src={PortraitImg} alt="Michael Hills at a mountain restaurant terrace on a sunny day" />
+          <figcaption className="label">Fig. 02: Michael Hills</figcaption>
+        </figure>
+      </Intro>
+
+      <Section>
+        <SectionHeader index="A" title="Experience" />
+        <div className="container">
+          <EntryList entries={experience} />
+        </div>
+      </Section>
+
+      <Section>
+        <SectionHeader index="B" title="Education" />
+        <div className="container">
+          <EntryList entries={education} />
+        </div>
+      </Section>
+
+      <Section>
+        <SectionHeader index="C" title="Leadership" />
+        <div className="container">
+          <EntryList entries={leadership} />
+        </div>
+      </Section>
+
+      <Section>
+        <SectionHeader index="D" title="Skills" />
+        <div className="container">
+          <Skills>
+            {capabilities.map((c) => (
+              <div key={c.code}>
+                <dt className="label">{c.title}</dt>
+                <dd>{c.tools.join(', ')}</dd>
+              </div>
+            ))}
+          </Skills>
+        </div>
+      </Section>
+
+      <Section>
+        <SectionHeader index="E" title="Off the clock" meta={interests.join(' / ')} />
+        <Gallery className="container grid-12">
+          <figure className="photo wide pad-r">
+            <img src={BigAirImg} alt="Freestyle skier mid-air over a jump at a park event" loading="lazy" />
+            <figcaption className="label">Fig. 03: Big air, park event</figcaption>
+          </figure>
+          <figure className="photo tall ruled">
+            <img src={BackflipImg} alt="Freestyle skier upside down mid-backflip" loading="lazy" />
+            <figcaption className="label">Fig. 04: Backflip</figcaption>
+          </figure>
+        </Gallery>
+      </Section>
     </>
   );
 }

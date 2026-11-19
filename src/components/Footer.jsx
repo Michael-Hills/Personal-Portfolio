@@ -1,118 +1,205 @@
 import styled from 'styled-components';
-import FooterCol from './FooterCol';
-import PText from './PText';
-import socials from '../assets/data/socials';
+import PropTypes from 'prop-types';
+import SmartLink from './SmartLink';
+import { contact, socials } from '../assets/data/contact';
 
-const FooterStyle = styled.div`
-  background-color: var(--deep-dark);
-  padding-top: 10rem;
-  .container {
+const SITEMAP = [
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/about' },
+  { label: 'Projects', href: '/projects' },
+  { label: 'Contact', href: '/contact' },
+];
+
+const CONTACT_LINKS = [
+  { label: contact.email, href: `mailto:${contact.email}` },
+  { label: contact.phone, href: contact.phoneHref },
+  { label: 'London, UK', href: contact.mapUrl },
+];
+
+const FooterStyles = styled.footer.attrs({ className: 'section' })`
+  .ruled {
+    border-top: 1px solid var(--rule);
+  }
+
+  .cols {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
+  .col {
+    grid-column: span 3;
+    padding: 32px var(--cell) 48px 0;
+
+    & + .col {
+      padding-left: var(--cell);
+      border-left: 1px solid var(--rule);
+    }
+
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+
+  .name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-stretch: 118%;
+    letter-spacing: -0.02em;
+  }
+
+  .tagline {
+    margin-top: 8px;
+    max-width: 32ch;
+    color: var(--ink-muted);
+    font-size: 0.9375rem;
+  }
+
+  h2 {
+    margin-bottom: 16px;
+  }
+
+  li + li {
+    margin-top: 6px;
+  }
+
+  @media (pointer: coarse), (max-width: 767px) {
+    li + li {
+      margin-top: 0;
+    }
+  }
+
+  .col a {
+    font-size: 0.9375rem;
+    overflow-wrap: anywhere;
+  }
+
+  .colophon {
     display: flex;
-    gap: 3rem;
-  }
-  .footer__col1 {
-    flex: 2;
-  }
-  .footer__col2,
-  .footer__col3,
-  .footer__col4 {
-    flex: 1;
-  }
-  .footer__col1__title {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-  }
-  .copyright {
-    background-color: var(--dark-bg);
-    text-align: left;
-    padding: 1rem 0;
-    margin-top: 5rem;
-    .para {
-      margin-left: 0;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    padding-block: 16px;
+    border-top: 1px solid var(--rule);
+
+    .back-to-top {
+      margin-left: auto;
     }
   }
-  @media only screen and (max-width: 768px) {
-    .container {
-      flex-direction: column;
-      gap: 0rem;
-      & > div {
-        margin-top: 5rem;
-      }
+
+  @media (max-width: 899px) {
+    .cols {
+      grid-template-columns: 1fr 1fr;
     }
-    .footer__col1 .para {
-      max-width: 100%;
+
+    .col {
+      grid-column: auto;
+      padding-right: 0;
     }
-    .copyright {
-      .container {
-        div {
-          margin-top: 0;
-        }
-      }
+
+    .col:first-child {
+      grid-column: 1 / -1;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .col + .col {
+      padding-left: 0;
+      border-left: 0;
+    }
+
+    .col:last-child {
+      padding-left: var(--cell);
+      border-left: 1px solid var(--rule);
+    }
+
+    .col:nth-child(3) {
+      grid-column: 1 / -1;
+      order: 3;
+      border-top: 1px solid var(--rule);
+    }
+  }
+
+  /* Phones: one short strip. The Contact section above already gives the email. */
+  @media (max-width: 639px) {
+    .cols {
+      grid-template-columns: 1fr;
+      padding-block: 20px 8px;
+    }
+
+    .col,
+    .col:last-child {
+      grid-column: 1 / -1;
+      order: 0;
+      padding: 0;
+      border: 0;
+    }
+
+    .col.intro,
+    .col.contact-col,
+    .col h2 {
+      display: none;
+    }
+
+    .col ul {
+      display: flex;
+      flex-wrap: wrap;
+      column-gap: 20px;
+    }
+
+    .col li + li {
+      margin-top: 0;
+    }
+
+    .colophon .set-in {
+      display: none;
     }
   }
 `;
 
+function LinkColumn({ title, links, className }) {
+  return (
+    <div className={className ? `col ${className}` : 'col'}>
+      <h2 className="label">{title}</h2>
+      <ul>
+        {links.map(({ label, href }) => (
+          <li key={href}>
+            <SmartLink href={href} className="text-link">
+              {label}
+            </SmartLink>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+LinkColumn.propTypes = {
+  title: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  links: PropTypes.arrayOf(
+    PropTypes.shape({ label: PropTypes.string.isRequired, href: PropTypes.string.isRequired })
+  ).isRequired,
+};
+
 export default function Footer() {
   return (
-    <FooterStyle>
-      <div className="container">
-        <div className="footer__col1">
-          <h1 className="footer__col1__title">Michael Hills</h1>
-          <PText>
-            Graduated with a First Class Masters Degree in Computer Science,
-            currently working at Serendipity AI as Backend Developer.
-          </PText>
-        </div>
-        <div className="footer__col2">
-          <FooterCol
-            heading="Important Links"
-            links={[
-              {
-                title: 'Home',
-                path: '/',
-              },
-              {
-                title: 'About Me',
-                path: '/about',
-              },
-              {
-                title: 'Projects',
-                path: '/projects',
-              },
-              {
-                title: 'Contact',
-                path: '/contact',
-              },
-            ]}
-          />
-        </div>
-        <div className="footer__col3">
-          <FooterCol
-            heading="Contact Info"
-            links={[
-              {
-                title: '+447760119930',
-                path: 'tel:+447760119930',
-              },
-              {
-                title: 'mjhills1@btinternet.com',
-                path: 'mailto:mjhills1@btinternet.com',
-              },
-              {
-                title: 'London, England',
-                path: 'https://www.google.com/maps/place/London/@51.5286416,-0.1015987,11z/data=!3m1!4b1!4m6!3m5!1s0x47d8a00baf21de75:0x52963a5addd52a99!8m2!3d51.5072178!4d-0.1275862!16zL20vMDRqcGw?entry=ttu&g_ep=EgoyMDI1MDQwMi4xIKXMDSoASAFQAw%3D%3D'
-              },
-            ]}
-          />
-        </div>
-        <div className="footer__col4">
-          <FooterCol
-            heading="Socials"
-            links={socials.map(({ label, url }) => ({ title: label, path: url }))}
-          />
+    <FooterStyles>
+      <div className="ruled">
+        <div className="container cols">
+          <div className="col intro">
+            <p className="name">Michael Hills</p>
+            <p className="tagline">Backend engineer building and running systems in production. Based in London.</p>
+          </div>
+          <LinkColumn title="Sitemap" links={SITEMAP} />
+          <LinkColumn title="Contact" links={CONTACT_LINKS} className="contact-col" />
+          <LinkColumn title="Elsewhere" links={socials.map(({ label, url }) => ({ label, href: url }))} />
         </div>
       </div>
-     
-    </FooterStyle>
+      <div className="container colophon">
+        <span className="label">© {new Date().getFullYear()} Michael Hills</span>
+        <span className="label set-in">Set in Archivo &amp; IBM Plex Mono</span>
+        <a href="#top" className="label back-to-top text-link">
+          Back to top ↑
+        </a>
+      </div>
+    </FooterStyles>
   );
 }

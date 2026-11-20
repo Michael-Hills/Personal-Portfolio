@@ -12,7 +12,6 @@ const SITEMAP = [
 
 const CONTACT_LINKS = [
   { label: contact.email, href: `mailto:${contact.email}` },
-  { label: contact.phone, href: contact.phoneHref },
   { label: 'London, UK', href: contact.mapUrl },
 ];
 

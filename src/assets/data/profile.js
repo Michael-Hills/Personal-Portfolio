@@ -12,7 +12,7 @@ export const currentWork = {
     { value: '15+', label: 'Concurrent live sessions' },
     { value: '3,000+', label: 'Sessions analysed to date' },
     { value: '300', label: 'Transcripts per event, up to' },
-    { value: 'Mins', label: 'Whole-event reporting, down from weeks' },
+    { value: 'Weeks → mins', label: 'Whole-event reporting time' },
   ],
   stack: ['Python', 'BERTopic', 'HDBSCAN', 'AWS', 'Kubernetes', 'Redis', 'Azure'],
 };
@@ -21,25 +21,27 @@ export const capabilities = [
   {
     code: 'BE',
     title: 'Backend',
-    desc: 'Real-time services and REST APIs in async Python, backed by PostgreSQL and Redis.',
+    desc: 'Real-time services and REST APIs in async Python, backed by PostgreSQL and Redis, and run in production.',
     tools: ['FastAPI', 'Django', 'PostgreSQL', 'Redis', 'WebSockets', 'async Python', 'REST API design'],
+    // Deployment is part of backend work here rather than a separate discipline.
+    deploy: ['AWS', 'Azure', 'Docker', 'Kubernetes', 'Jenkins', 'GitHub Actions', 'Prometheus', 'Grafana', 'Cloudflare Pages'],
   },
   {
     code: 'ML',
     title: 'ML and data',
     desc: 'NLP and analysis pipelines: topic modelling, clustering, sentiment analysis, and LLM pipelines and evaluation.',
-    tools: ['PyTorch', 'TensorFlow', 'BERTopic', 'HDBSCAN'],
+    tools: ['PyTorch', 'TensorFlow', 'BERTopic', 'HDBSCAN', 'UMAP', 'sentence-transformers', 'Hugging Face', 'Claude API'],
   },
   {
-    code: 'IN',
-    title: 'Infrastructure',
-    desc: 'Running services in production with containers, CI/CD and monitoring.',
-    tools: ['Azure', 'AWS', 'Docker', 'Kubernetes', 'Jenkins', 'Prometheus', 'Grafana', 'Git'],
+    code: 'FE',
+    title: 'Frontend',
+    desc: 'React frontends for the products behind the APIs, including Backgammle and this site.',
+    tools: ['React', 'TypeScript', 'Vite'],
   },
   {
     code: 'LG',
     title: 'Languages',
-    tools: ['Python', 'SQL', 'JavaScript', 'Java'],
+    tools: ['Python', 'SQL', 'TypeScript', 'JavaScript', 'Java'],
   },
 ];
 

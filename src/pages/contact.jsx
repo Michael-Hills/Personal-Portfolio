@@ -6,7 +6,6 @@ import { contact, socials } from '../assets/data/contact';
 
 const DETAILS = [
   { term: 'Email', label: contact.email, href: `mailto:${contact.email}` },
-  { term: 'Phone', label: contact.phone, href: contact.phoneHref },
   { term: 'Location', label: contact.location, href: contact.mapUrl },
   ...socials.map(({ label, url }) => ({ term: label, label: url.replace(/^https:\/\/(www\.)?/, ''), href: url })),
 ];

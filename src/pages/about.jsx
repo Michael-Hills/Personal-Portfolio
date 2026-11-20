@@ -274,12 +274,18 @@ export default function About() {
         <SectionHeader index="D" title="Skills" />
         <div className="container">
           <Skills>
-            {capabilities.map((c) => (
+            {capabilities.flatMap((c) => [
               <div key={c.code}>
                 <dt className="label">{c.title}</dt>
                 <dd>{c.tools.join(', ')}</dd>
-              </div>
-            ))}
+              </div>,
+              c.deploy && (
+                <div key={`${c.code}-deploy`}>
+                  <dt className="label">Deployment</dt>
+                  <dd>{c.deploy.join(', ')}</dd>
+                </div>
+              ),
+            ])}
           </Skills>
         </div>
       </Section>

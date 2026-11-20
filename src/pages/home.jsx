@@ -235,6 +235,11 @@ const Now = styled.div`
     line-height: 1;
   }
 
+  /* A figure in words rather than a number (e.g. "Weeks → mins") is set smaller to fit. */
+  dd.words {
+    font-size: clamp(1.5rem, 2.2vw, 2rem);
+  }
+
   @media (max-width: 1023px) {
     .text {
       --span: 9;
@@ -304,6 +309,11 @@ const Capabilities = styled.ul`
     color: var(--ink);
   }
 
+  .deploy {
+    margin-top: 12px;
+    color: var(--ink-muted);
+  }
+
   @media (max-width: 1023px) {
     li {
       --span: 6;
@@ -348,6 +358,7 @@ const Capabilities = styled.ul`
     }
 
     .tools {
+      grid-column: 2;
       margin-top: 0;
       font-family: var(--font-sans);
       font-size: 0.9375rem;
@@ -499,7 +510,7 @@ export default function Home() {
             {currentWork.stats.map((s) => (
               <div key={s.label}>
                 <dt className="label">{s.label}</dt>
-                <dd>{s.value}</dd>
+                <dd className={/^\d/.test(s.value) ? undefined : 'words'}>{s.value}</dd>
               </div>
             ))}
           </dl>
@@ -518,6 +529,7 @@ export default function Home() {
               <h3>{c.title}</h3>
               {c.desc && <p>{c.desc}</p>}
               <p className="label tools">{c.tools.join(' / ')}</p>
+              {c.deploy && <p className="label tools deploy">Deploy: {c.deploy.join(' / ')}</p>}
             </li>
           ))}
         </Capabilities>

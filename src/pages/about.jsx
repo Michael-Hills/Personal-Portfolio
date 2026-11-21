@@ -241,9 +241,21 @@ export default function About() {
             prototype to launch, spanning real-time streaming pipelines through to NLP analysis.
           </p>
           <p>
-            My journey into coding started back in secondary school. What began as curiosity quickly grew into a
-            passion, especially for building things that solve real-world problems, whether that’s automating repetitive
-            tasks, improving safety in sports, or uncovering useful insights through data.
+            What I enjoy most is turning slow, manual work into something that runs on its own. At Serendipity, that
+            meant building the pipeline that cut whole-event reporting from weeks to minutes.
+          </p>
+          <p>
+            My side projects start from my own interests. A friend taught me backgammon in Greece a couple of years ago,
+            and we’ve played regularly ever since. Backgammle began as a way for me to improve, and it’s now a live daily
+            puzzle that anyone can play. Each day the gnubg engine picks and grades a new position, and Claude explains
+            the best move using only the engine’s figures.
+          </p>
+          <p>
+            As a freestyle skier, I'd noticed that fall detection on phones and watches can't tell a jump from a crash. That became my dissertation: I collected motion data from skiers' phones and trained models that reached 92% accuracy
+          </p>
+          <p>
+            Next, I want machine learning to be a bigger part of my work. At Serendipity I apply NLP models, and now I’m
+            learning to train my own, starting with a backgammon model that learns through self-play.
           </p>
         </div>
         <figure className="photo ruled">

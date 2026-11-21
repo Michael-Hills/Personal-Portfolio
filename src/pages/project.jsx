@@ -86,19 +86,48 @@ const Styles = styled.article`
     margin-top: 24px;
   }
 
+  /* Caption in the first quarter, image in the main text column (not the full width). */
   figure {
     border-top: 1px solid var(--rule);
+  }
+
+  figure > * {
     padding-top: 32px;
   }
 
-  figure img {
+  figcaption {
+    --span: 3;
+  }
+
+  .frame {
+    --span: 6;
+  }
+
+  .frame img {
     width: 100%;
-    max-height: 640px;
+    max-height: 420px;
     object-fit: cover;
   }
 
-  figcaption {
-    margin-top: 10px;
+  @media (max-width: 1023px) {
+    .frame {
+      --span: 9;
+    }
+  }
+
+  @media (max-width: 639px) {
+    figure > * {
+      padding-top: 0;
+    }
+
+    .frame {
+      order: -1;
+      padding-top: 24px;
+    }
+
+    figcaption {
+      margin-top: 10px;
+    }
   }
 
   .pager {
@@ -228,11 +257,13 @@ export default function ProjectPage() {
           </div>
         </div>
 
-        <figure>
-          <img src={project.img} alt="" />
-          <figcaption className="label">
+        <figure className="grid-12">
+          <figcaption className="label pad-r">
             Fig. {projectNumber(project)}: {project.title}
           </figcaption>
+          <div className="frame ruled">
+            <img src={project.img} alt="" />
+          </div>
         </figure>
 
         <nav className="pager" aria-label="More projects">

@@ -1,0 +1,10 @@
+// Cloudflare Workers config: serves the Vite build as static files at https://michaelhills.dev.
+{
+  "name": "personal-portfolio",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./dist",
+    // Unknown paths (/notes/backgammle, /project/7…) get index.html so the React router can handle them.
+    "not_found_handling": "single-page-application"
+  }
+}

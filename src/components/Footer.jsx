@@ -196,7 +196,7 @@ export default function Footer() {
       <div className="container colophon">
         <span className="label">© {new Date().getFullYear()} Michael Hills</span>
         <span className="label set-in">
-          Built with React and Vite, hosted on GitHub Pages.{' '}
+          Built with React and Vite, hosted on Cloudflare.{' '}
           <SmartLink href="https://github.com/Michael-Hills/Personal-Portfolio" className="text-link">
             Source ↗
           </SmartLink>

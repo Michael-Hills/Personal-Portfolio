@@ -251,7 +251,9 @@ export default function About() {
             the best move using only the engine’s figures.
           </p>
           <p>
-            As a freestyle skier, I'd noticed that fall detection on phones and watches can't tell a jump from a crash. That became my dissertation: I collected motion data from skiers' phones and trained models that reached 92% accuracy
+            As a freestyle skier, I’d noticed that fall detection on phones and watches can’t tell a jump from a crash.
+            That became my dissertation: I collected motion data from skiers’ phones and trained models that reached 92%
+            accuracy.
           </p>
           <p>
             Next, I want machine learning to be a bigger part of my work. At Serendipity I apply NLP models, and now I’m

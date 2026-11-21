@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import SmartLink from './SmartLink';
 
 const List = styled.ol`
   /* Period in the first quarter, details in the main text column (shared 12-column grid). */
@@ -30,6 +31,10 @@ const List = styled.ol`
   .org {
     margin-top: 4px;
     color: var(--ink-muted);
+  }
+
+  .entry-link {
+    margin-top: 12px;
   }
 
   .note,
@@ -124,6 +129,13 @@ function Entry({ entry, compact }) {
       <div className="detail">
         <h3>{entry.role}</h3>
         <p className="org">{entry.org}</p>
+        {entry.link && (
+          <p className="entry-link">
+            <SmartLink href={entry.link.href} className="label text-link">
+              {entry.link.label}
+            </SmartLink>
+          </p>
+        )}
         {!compact && (
           <div className={collapsible && !open ? 'points-wrap collapsed' : 'points-wrap'}>
             {entry.note && <p className="label note">{entry.note}</p>}
@@ -171,6 +183,7 @@ EntryList.propTypes = {
       role: PropTypes.string.isRequired,
       org: PropTypes.string.isRequired,
       note: PropTypes.string,
+      link: PropTypes.shape({ href: PropTypes.string.isRequired, label: PropTypes.string.isRequired }),
       groups: PropTypes.arrayOf(
         PropTypes.shape({
           name: PropTypes.string,

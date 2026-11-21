@@ -36,6 +36,37 @@ const Styles = styled.div`
     line-height: 0.95;
   }
 
+  h2 {
+    position: relative;
+  }
+
+  /* Permalink: faint on touch screens, revealed on hover elsewhere. */
+  .anchor {
+    margin-left: 0.4em;
+    font-family: var(--font-mono);
+    font-size: 0.45em;
+    font-weight: 400;
+    vertical-align: 0.35em;
+    color: var(--ink-faint);
+    transition: color 0.15s ease, opacity 0.15s ease;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--accent);
+    }
+  }
+
+  @media (hover: hover) {
+    .anchor {
+      opacity: 0;
+    }
+
+    h2:hover .anchor,
+    .anchor:focus-visible {
+      opacity: 1;
+    }
+  }
+
   .meta {
     flex-shrink: 0;
     text-align: right;
@@ -71,9 +102,16 @@ const Styles = styled.div`
   }
 `;
 
+export const slugify = (text) =>
+  text
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+
 export default function SectionHeader({ index, phoneIndex, title, meta }) {
+  const id = slugify(title);
   return (
-    <Styles>
+    <Styles id={id}>
       <div className="container grid-12">
         <span className="num" aria-hidden="true">
           {phoneIndex ? (
@@ -86,7 +124,12 @@ export default function SectionHeader({ index, phoneIndex, title, meta }) {
           )}
         </span>
         <div className="head ruled">
-          <h2>{title}</h2>
+          <h2>
+            {title}
+            <a href={`#${id}`} className="anchor" aria-label={`Link to ${title}`}>
+              §
+            </a>
+          </h2>
           {meta && <span className="label meta">{meta}</span>}
         </div>
       </div>

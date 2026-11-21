@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import usePageTitle from '../hooks/usePageTitle';
 import PageHeader from '../components/PageHeader';
 import SectionHeader from '../components/SectionHeader';
 import EntryList from '../components/EntryList';
@@ -215,6 +216,8 @@ const Skills = styled.dl`
 `;
 
 export default function About() {
+  usePageTitle('About');
+
   return (
     <>
       <PageHeader index="01" kicker="About" title="About">
@@ -234,7 +237,7 @@ export default function About() {
         </div>
         <div className="copy ruled pad-r">
           <p>
-            Sole engineer on a live transcription and analysis platform used by the World Economic Forum, taken from
+            Sole application backend engineer on a live transcription and analysis platform used by the World Economic Forum, taken from
             prototype to launch, spanning real-time streaming pipelines through to NLP analysis.
           </p>
           <p>

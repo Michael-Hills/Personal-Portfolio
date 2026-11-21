@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import styled from 'styled-components';
+import usePageTitle from '../hooks/usePageTitle';
 import PageHeader from '../components/PageHeader';
 import ProjectIndex from '../components/ProjectIndex';
+import ProjectTable from '../components/ProjectTable';
 import ProjectsInfo from '../assets/data/projects';
 
 const categories = ['All', ...new Set(ProjectsInfo.flatMap((project) => project.short_category))];
@@ -94,6 +96,23 @@ const Filters = styled.div`
       opacity: 0.6;
     }
   }
+
+  /* View switch, pushed to the end of the chip row. */
+  .views {
+    display: flex;
+    margin-left: auto;
+  }
+
+  .views button + button {
+    margin-left: -1px;
+  }
+`;
+
+// The list view is the only view on phones, whatever was chosen on a wider screen.
+const TableWrap = styled.div`
+  @media (max-width: 639px) {
+    display: none;
+  }
 `;
 
 const Empty = styled.p`
@@ -102,8 +121,10 @@ const Empty = styled.p`
 `;
 
 export default function Projects() {
+  usePageTitle('Projects');
   const [searchText, setSearchText] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [view, setView] = useState('list');
 
   const query = searchText.trim().toLowerCase();
   const projectsData = ProjectsInfo.filter(
@@ -141,10 +162,26 @@ export default function Projects() {
                 <span className="count">{countFor(category)}</span>
               </button>
             ))}
+            <span className="views hide-phone" role="group" aria-label="View as">
+              {['list', 'table'].map((v) => (
+                <button key={v} type="button" aria-pressed={view === v} onClick={() => setView(v)}>
+                  {v}
+                </button>
+              ))}
+            </span>
           </div>
         </Filters>
         {projectsData.length === 0 ? (
           <Empty>No projects match your search.</Empty>
+        ) : view === 'table' ? (
+          <>
+            <TableWrap>
+              <ProjectTable projects={projectsData} />
+            </TableWrap>
+            <div className="phone-only">
+              <ProjectIndex projects={projectsData} compact withDesc />
+            </div>
+          </>
         ) : (
           <ProjectIndex projects={projectsData} compact withDesc />
         )}

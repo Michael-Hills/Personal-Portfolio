@@ -1,10 +1,13 @@
 import styled from 'styled-components';
+import usePageTitle from '../hooks/usePageTitle';
+import { SERENDIPITY_NOTE_PATH } from '../assets/data/notes/serendipity';
 import Button from '../components/Button';
 import SectionHeader from '../components/SectionHeader';
 import ProjectIndex from '../components/ProjectIndex';
 import EntryList from '../components/EntryList';
 import LondonClock from '../components/LondonClock';
 import SmartLink from '../components/SmartLink';
+import CopyButton from '../components/CopyButton';
 import HeroImg from '../assets/images/portrait.jpg';
 import projects from '../assets/data/projects';
 import { capabilities, currentWork, experience, summary } from '../assets/data/profile';
@@ -408,9 +411,16 @@ const Split = styled.div`
     letter-spacing: -0.03em;
   }
 
+  .email-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 20px;
+    margin-top: 24px;
+  }
+
   .email {
     display: inline-block;
-    margin-top: 24px;
     font-size: clamp(1.125rem, 3vw, 2rem);
     overflow-wrap: anywhere;
   }
@@ -428,6 +438,8 @@ const Split = styled.div`
 `;
 
 export default function Home() {
+  usePageTitle();
+
   return (
     <>
       <Hero>
@@ -501,8 +513,8 @@ export default function Home() {
             <h3>{currentWork.headline}</h3>
             <p className="body">{currentWork.body}</p>
             <p className="links">
-              <SmartLink href="/about" className="label text-link">
-                Full role details →
+              <SmartLink href={SERENDIPITY_NOTE_PATH} className="label text-link">
+                Read the case study →
               </SmartLink>
             </p>
           </div>
@@ -574,9 +586,12 @@ export default function Home() {
           </div>
           <div className="main ruled">
             <p className="big">Get in touch.</p>
-            <a href={`mailto:${contact.email}`} className="email text-link">
-              {contact.email}
-            </a>
+            <p className="email-row">
+              <a href={`mailto:${contact.email}`} className="email text-link">
+                {contact.email}
+              </a>
+              <CopyButton text={contact.email} />
+            </p>
           </div>
         </Split>
       </Section>

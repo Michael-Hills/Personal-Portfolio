@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
+import usePageTitle from '../hooks/usePageTitle';
 import projectData, { projectNumber } from '../assets/data/projects';
 import Button from '../components/Button';
 import SmartLink from '../components/SmartLink';
@@ -148,6 +149,7 @@ export default function ProjectPage() {
   const { id } = useParams();
   const index = projectData.findIndex((p) => p.id === Number(id));
   const project = projectData[index];
+  usePageTitle(project ? project.title : 'Project not found');
 
   if (!project) {
     return (
@@ -199,11 +201,16 @@ export default function ProjectPage() {
                 </dd>
               </div>
             </dl>
-            {(project.liveLink || project.githubLink || project.reportLink) && (
+            {(project.liveLink || project.note || project.githubLink || project.reportLink) && (
               <div className="actions">
                 {project.liveLink && (
                   <Button to={project.liveLink} icon="↗">
                     Visit live site
+                  </Button>
+                )}
+                {project.note && (
+                  <Button to={project.note} variant="secondary">
+                    Engineering note
                   </Button>
                 )}
                 {project.githubLink && (

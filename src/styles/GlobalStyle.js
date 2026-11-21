@@ -10,7 +10,7 @@ const GlobalStyles = createGlobalStyle`
     --bg-raised: #181815;
     --ink: #ecebe6;
     --ink-muted: #a09d95;
-    --ink-faint: #6b6963;
+    --ink-faint: #83807a;
     --rule: #2b2a26;
     --rule-strong: #46443f;
     --accent: #ff5a1f;
@@ -23,7 +23,7 @@ const GlobalStyles = createGlobalStyle`
     --bg-raised: #e8e5dc;
     --ink: #151513;
     --ink-muted: #58554f;
-    --ink-faint: #8f8b82;
+    --ink-faint: #6e6a62;
     --rule: #d8d4ca;
     --rule-strong: #b2ada2;
     --accent: #c73c0b;

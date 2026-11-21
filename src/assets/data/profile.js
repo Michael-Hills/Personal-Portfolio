@@ -1,3 +1,5 @@
+import { SERENDIPITY_NOTE_PATH } from './notes/serendipity';
+
 // Content mirrors the CV (public/Michael-Hills-CV.pdf). Keep the two in sync.
 
 export const summary =
@@ -7,11 +9,11 @@ export const currentWork = {
   org: 'Serendipity AI',
   role: 'Software Engineer',
   headline: 'Live transcription and analysis platform used by the World Economic Forum',
-  body: 'Sole backend engineer, taking the platform from prototype to launch. It transcribes live sessions at events and internal meetings and delivers summaries, key themes and insights, built as part of a wider agentic platform.',
+  body: 'Sole application backend engineer, taking the platform from prototype to launch. It transcribes live sessions at events and internal meetings and delivers summaries, key themes and insights, built as part of a wider agentic platform.',
   stats: [
     { value: '15+', label: 'Concurrent live sessions' },
     { value: '3,000+', label: 'Sessions analysed to date' },
-    { value: '300', label: 'Transcripts per event, up to' },
+    { value: '500', label: 'Transcripts per event, up to' },
     { value: 'Weeks → mins', label: 'Whole-event reporting time' },
   ],
   stack: ['Python', 'BERTopic', 'HDBSCAN', 'AWS', 'Kubernetes', 'Redis', 'Azure'],
@@ -50,14 +52,15 @@ export const experience = [
     period: 'Jul 2025 – Present',
     role: 'Software Engineer',
     org: 'Serendipity AI',
+    link: { href: SERENDIPITY_NOTE_PATH, label: 'Read the case study →' },
     groups: [
       {
         points: [
-          'Sole backend engineer on a live transcription and analysis platform used by the World Economic Forum at events and internal meetings, transcribing live sessions and delivering summaries, key themes and insights, built as part of a wider agentic platform',
+          'Sole application backend engineer on a live transcription and analysis platform used by the World Economic Forum at events and internal meetings, transcribing live sessions and delivering summaries, key themes and insights, built as part of a wider agentic platform',
           'Set the architecture and technical direction of the service, working directly with the client to scope each event',
           'Designed and built the live analysis layer, supporting 15+ concurrent sessions: speaker recognition from voice profiles, topic and insight extraction, and clustering of thousands of micro-topics into readable themes using BERTopic and HDBSCAN',
-          'Reduced whole-event reporting from weeks to minutes with a cross-session pipeline that surfaces areas of convergence, unresolved tensions and gaps in coverage, across up to 300 transcripts per event and 3,000+ sessions to date',
-          'Integrated Zoom’s real-time media streams into the transcription pipeline, streaming live meeting audio through the same analysis path as in-app capture, with OAuth token lifecycle, credential encryption and session recovery',
+          'Reduced whole-event reporting from weeks to minutes with a cross-session pipeline that surfaces areas of convergence, unresolved tensions and open questions no session answered, across up to 500 transcripts per event and 3,000+ sessions to date',
+          'Integrated Zoom’s real-time media streams into the transcription pipeline, streaming Zoom’s live meeting transcripts through the same analysis path as in-app capture, with OAuth token lifecycle, credential encryption and session recovery',
           'Run the service on AWS using Docker and Kubernetes, Redis for state and caching, Jenkins for CI/CD, and Prometheus and Grafana for monitoring, with Azure hosting the underlying speech and language models',
         ],
       },

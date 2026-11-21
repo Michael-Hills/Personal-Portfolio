@@ -9,6 +9,8 @@ import About from './pages/about';
 import Projects from './pages/projects';
 import ProjectPage from './pages/project';
 import Contact from './pages/contact';
+import Notes from './pages/notes';
+import Note from './pages/note';
 
 export default function App() {
   return (
@@ -24,6 +26,8 @@ export default function App() {
             <Route path="/about" element={<About />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/project/:id" element={<ProjectPage />} />
+            <Route path="/notes" element={<Notes />} />
+            <Route path="/notes/:slug" element={<Note />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>

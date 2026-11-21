@@ -7,6 +7,7 @@ const SITEMAP = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/about' },
   { label: 'Projects', href: '/projects' },
+  { label: 'Notes', href: '/notes' },
   { label: 'Contact', href: '/contact' },
 ];
 
@@ -194,7 +195,12 @@ export default function Footer() {
       </div>
       <div className="container colophon">
         <span className="label">© {new Date().getFullYear()} Michael Hills</span>
-        <span className="label set-in">Set in Archivo &amp; IBM Plex Mono</span>
+        <span className="label set-in">
+          Built with React and Vite, hosted on GitHub Pages.{' '}
+          <SmartLink href="https://github.com/Michael-Hills/Personal-Portfolio" className="text-link">
+            Source ↗
+          </SmartLink>
+        </span>
         <a href="#top" className="label back-to-top text-link">
           Back to top ↑
         </a>
